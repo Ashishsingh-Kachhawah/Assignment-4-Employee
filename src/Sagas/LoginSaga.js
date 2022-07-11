@@ -53,7 +53,9 @@ function LoginApi (props)  {
            // window.location.href = "https://demospngp.staging.utilizecore.com/company/outbound/work_orders"
          })
          .catch((error) =>{
-           alert("Unable to login")
+           alert("Unable to login");
+           store.dispatch({type: 'HIDE_ERROR_LABEL' , hideErrorLabel : false});
+           console.log("hideErrorLabel ---", store.getState().reducer.hideErrorLabel)
          })
    
    }

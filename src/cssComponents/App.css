@@ -565,3 +565,9 @@ span{
   text-align: center;
   color:black
 }
+
+.stylErrorLabel, .stylInvalidEmailLabel {
+  color: red;
+  font-size: 14px;
+  text-align: left;
+}
