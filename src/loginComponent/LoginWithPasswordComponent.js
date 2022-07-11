@@ -21,6 +21,8 @@ const LoginWithPassword = (props) =>{
   const [IsLoginWithPassword, setIsLoginWithPassword] = useState(true)
   const [showModal, setshowModal] = useState(false);
   const [otpShowModal, setotpShowModal] = useState(false);
+  const [hideErrorLabel, setHideErrorLabelValue] = useState(true);
+
 
     const  handleChangeEmail = (event) => {
       //TO CHECK INPUT TYPE EITHER EMAIL OR PHONE NUMBER
@@ -73,6 +75,7 @@ const LoginWithPassword = (props) =>{
       // THIS FUNCTION IS PRESENT IN REDUCER OF REDUX
       dispatch(loginAction())
     } 
+    console.log("store.getState().reducer.hideErrorLabel ---", store.getState().reducer.hideErrorLabel);
 
     return(
       <>
@@ -110,6 +113,8 @@ const LoginWithPassword = (props) =>{
                <label className="ssoLabelClass">{resources.LOGIN.SSO_COMING_SOON}</label>
                <hr className="underline" />
              </div> */}
+             <label className='stylErrorLabel' hidden={store.getState().reducer.hideErrorLabel ? true : false}> Invalid Email or Password</label>
+              <br />
              <h6>{resources.LOGIN.SSO_COMING_SOON}</h6>
              <div className="emailcontainer">
 

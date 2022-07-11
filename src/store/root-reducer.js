@@ -14,7 +14,9 @@ const INITIAL_STATE = {
       otpShowModal: false,
       IsLoginWithPassword: true,
       client_id:"",
-      client_secret:""
+      client_secret:"",
+      hideErrorLabel: true,
+
 }
 
 const INITIAL_STATE_LOGIN = {
@@ -190,6 +192,11 @@ case type.CLIENT_SECRET:
     return{
         ...state,
         client_secret: action.client_secret
+    }
+case type.HIDE_ERROR_LABEL:
+    return{
+        ...state,
+        hideErrorLabel : action.hideErrorLabel
     }
         default:
             return state;
