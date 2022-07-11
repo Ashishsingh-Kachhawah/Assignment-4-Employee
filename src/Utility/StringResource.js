@@ -3,6 +3,8 @@ export const resources = {
         WE_ARE_HAPPY_HEADING : "We are happy you're back, Sign In!",
         SSO_COMING_SOON : "SSO Coming Soon",
         EMAIL_OR_PHONE_LABEL : "Email or Phone*",
+        INVALID_EMAIL_LABEL : "Please enter the valid email",
+        INVALID_EMAIL_OR_PWD : "Invalid Email Id or Password",
         EMAIL_OR_PHONE : "Email or Phone",
         PASSWORD_LABEL : "Password*",
         PASSWORD : "Password",
