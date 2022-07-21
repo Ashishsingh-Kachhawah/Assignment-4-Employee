@@ -1,0 +1,195 @@
+.stylDashboardView {
+    background-color: rgb(248, 242, 242);
+    height : 100%;
+    position: absolute;
+    width : 100%;
+    border: 1px solid red;
+    
+}
+body {
+    background-color: rgb(50, 49, 49);
+  }
+  
+  .DashboardNavBar {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background: black;
+    color: white;
+    height: 90px;
+    box-shadow: 0px 5px 20px rgb(102, 103, 103);
+  }
+  
+  .header {
+    position: sticky;
+    top: 0;
+  
+  }
+  #imgcontainer{
+      margin-left: -500px;
+      /* margin-top: 13px; */
+      /* float: left; */
+    }
+  .logoutdiv{
+    /* margin-left: 500px; */
+    margin-right: -500px;
+  }
+  #logoutbtn{
+    background-color: transparent;
+    border: 0ch;
+  
+  }
+  .hide {
+    display: none;
+    font-size: small;
+  }
+      
+  #logoutbtn:hover + .hide {
+    display: block;
+    color: red;
+  }
+  .AttendanceDiv{
+    display: inline-block;
+    width: 50%;
+  }
+  .LocationDiv{
+    display: inline-block;
+    width: 50%;
+  }
+  #attendancebtn{
+  width: 100%;
+  background-color: lightskyblue;
+  padding: 10px;
+  }
+  #trueattendancebtn{
+    width: 100%;
+  background-color: darkblue;
+  padding: 10px;
+  /* transform: scale(1.2); */
+  }
+  /* .attendancebtn:active {
+    transform: scale(1.2);
+    background-color:slateblue;
+  
+  } */
+  #locationbtn{
+  width: 100%;
+  background-color:lightskyblue;
+  padding: 10px;
+  }
+  #truelocationbtn{
+    width: 100%;
+  background-color:darkblue;
+  padding: 10px;
+  /* transform: scale(1.2); */
+  }
+  /* #loaactionbtn:active {
+    transform: scale(1.2);
+    background-color:slateblue;
+  } */
+  .DatapickerDiv{
+    background-color: lightcyan;
+    width: 100%;
+    height: fit-content;
+    /* justify-content: space-around; */
+    padding: 10px;
+  }
+  .selectDatelable{
+    margin-left: 500px;
+    font-weight: bold;
+  }
+  .datepicker{
+    margin-left: 20px;
+    font-weight: bold;
+    width: 400px;
+    height: 30px;
+    background-color: transparent;
+    /* box-shadow: lightblue; */
+    border-color: transparent;
+    border: none;
+    /* background-color: transparent; */
+  }
+  
+  .displayDate{
+    /* background-color: chartreuse; */
+    font-weight: bold;
+    margin-left: 20px;
+  }
+  
+  /* Attendance Container Css */
+  
+  .MainAttendanceContainer{
+    width: 100%;
+    background-color: lightcyan;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .UserListAdmin{
+    width: 15%;
+  }
+  .UserListNoramlUser{
+    width: 0%;
+  }
+  
+  .AttendanceTableAdminUser{
+    padding-top: 20px;
+  width: 85%;
+  
+  }
+  .AttendanceTableNormalUser{
+    padding-top: 20px;
+    margin-left: 2ch;
+    width: 100%;
+  }
+  td{
+    text-align: center;
+  }
+  thead{
+    text-align: center;
+    color: whitesmoke;
+  }
+  .sidenav {
+    padding-left: 10px;
+    height:100%;
+    width: 200px;
+    left: 0;
+    cursor: pointer;
+    background-color: transparent;
+    padding-top: 20px;
+  }
+  /* 
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  } */
+  
+  /* Map Css  */
+  
+  .MapMainContaioner{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .MapUserList{
+    width: 15%;
+  }
+  
+  .MapContainerAdminUser{
+    padding-top: 20px;
+    width: 85%;
+  }
+  
+  .MapContainerNormalUser{
+    padding-top: 20px;
+    margin-left: 2ch;
+    width: 100%;
+  }

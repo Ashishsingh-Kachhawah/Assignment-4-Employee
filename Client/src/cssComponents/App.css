@@ -1,0 +1,538 @@
+/* .App {
+  text-align: center;
+} */
+
+#imageContainer{
+/* margin-left: -250px; */
+margin-left:-200px;
+margin-top: 13px;
+display: inline-flex;
+}
+
+#selectEnvironment{
+  display: flex;
+  align-self: flex-end;
+ /* margin-left: -20px; */
+  /* float: right; */
+  position: relative;
+
+  /* background-color: red; */
+  width: 350px;
+}
+
+nav{
+ 
+  display: flex;
+  position:sticky;
+  top: 0;
+  padding: 20px;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 13vh; 
+  background: white;
+  color: white;
+  width: 100%;
+  margin-top: auto;
+  box-shadow: 0px 5px 20px rgb(149, 229, 241); ;
+}
+/* display: flex;
+justify-content: left;
+align-items: left;
+padding: 20px;
+background: white;
+color: white;
+box-shadow: 0px 5px 20px rgb(149, 229, 241); */
+
+.mainView{
+  /* margin-top: 20vh;
+  height: 500px;
+  width: 100%; */
+  margin: 0rem;
+  width: 100%;
+}
+.submainView{
+  /* margin-top: -500px;
+  height: 500px;
+  width: 500px;
+  margin-left: 100px; */
+  width: 55%;
+  margin-left: 90px;
+  margin-top: 60px;
+  display: inline-block;
+  padding: 1rem 1rem;
+  vertical-align: middle;
+}
+.readyToWorkContainer{
+  display: inline-block;
+  margin-top: -150px;
+  padding: 1rem 1rem;
+  vertical-align: bottom;
+  align-self: flex-end; 
+  width: 30%;
+  /* height: 500px;
+  width: 300px; */
+  margin-left: 20px;
+  /* display: inline-block;
+  margin-left: 20px;
+  padding: 1rem 1rem;
+  vertical-align: bottom;
+  align-self: flex-end; */
+}
+ .h1 {
+  text-align: left;
+  font-size: 1.75rem;
+  margin: 1.5rem 0;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+    line-height: 1.2;
+    color: #404040;
+  }
+  
+  button {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+  
+  }
+.buttonView{
+  flex-direction: row ;
+  /* margin-left: -50px; */
+  justify-content: space-evenly;
+  width: 300px;
+}
+
+#Linkdinbtn {
+  margin-left: 15px;
+  margin-right: 15px;
+  border-radius: 10px;
+  cursor: no-drop;
+
+}
+
+#googlebtn {
+  border-radius: 10px;
+  cursor: no-drop;
+}
+
+#outlookbtn {
+  border-radius: 10px;
+  cursor: no-drop;
+}
+
+.mainViewButton{
+  height: 45px;
+  width: 45px;
+  border-radius: 10px;
+  border-width: 0px;
+  background-color: transparent;
+  box-shadow: 3px 3px 6px rgb(176, 222, 243);
+  margin-right:16px
+}
+
+.mainViewButton:hover {
+  background-color: white;
+  /* box-shadow: 2px 2px  #b39b9b; */
+  outline: none;
+  border: 2px 2px  #b39b9b;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  cursor: no-drop;
+}
+h6 {
+  /* margin-left: -650px; */
+  font-size: 1rem;
+  overflow: hidden;
+  color: lightgray;
+}
+
+
+h6:after {
+  content: "";
+  display: inline-block;
+  height: 0.5em;
+  vertical-align: bottom;
+  width: 80%;
+  margin-right: -80%;
+  margin-left: 5px;
+  border-top: 2px solid lightgray;
+}
+
+.ssoContainer {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+ /* .ssoLabelClass {
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 1rem;
+  overflow: hidden;
+  color: lightgray;
+} */
+/* .underline {
+  top: 0;
+  position: sticky;
+  margin-left: 1rem;
+  width: 100%;
+  flex: 1;
+  border: 0.006rem solid rgba(0,0,0,.12);
+} */
+/* .mainViewButton{ 
+  background-image: "http://www.w3.org/2000/svg" ;
+  background-position: center;
+  background-size: cover;
+  background-repeat: 'no-repeat';
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+} */
+
+.emailcontainer{
+  margin-top: 10px;
+}
+.emailphonelabel {
+  color: #353d46;
+  font-size: .975rem;
+  margin-left: 0px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.countryDropdown{
+  background-color: red;
+  width: 100px;
+  height: 40px;
+  float: left;
+  /* margin-left: auto; */
+}
+.emailCountrySelect {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  padding-left: 7px;
+  display: inline-block;
+}
+
+
+[type=color], [type=date], [type=datetime], [type=datetime-local], [type=email], [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=url], [type=week], [type=time], select, textarea {
+  display: block;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: .75rem;
+  outline: none;
+  background: transparent;
+  margin-bottom: .5rem;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 100%;
+  line-height: 1; }
+
+[type=color]:hover, [type=date]:hover, [type=datetime]:hover, [type=datetime-local]:hover, [type=email]:hover, [type=month]:hover, [type=number]:hover, [type=password]:hover, [type=search]:hover, [type=tel]:hover, [type=text]:hover, [type=url]:hover, [type=week]:hover, [type=time]:hover, select:hover, textarea:hover {
+  border: 1px solid #b4b4b4; }
+
+[type=color]:focus, [type=color]:active, [type=date]:focus, [type=date]:active, [type=datetime]:focus, [type=datetime]:active, [type=datetime-local]:focus, [type=datetime-local]:active, [type=email]:focus, [type=email]:active, [type=month]:focus, [type=month]:active, [type=number]:focus, [type=number]:active, [type=password]:focus, [type=password]:active, [type=search]:focus, [type=search]:active, [type=tel]:focus, [type=tel]:active, [type=text]:focus, [type=text]:active, [type=url]:focus, [type=url]:active, [type=week]:focus, [type=week]:active, [type=time]:focus, [type=time]:active, select:focus, select:active, textarea:focus, textarea:active {
+  border: 1px solid #0366EE;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 6px #8cbcfe; }
+
+.passwordcontainer{
+margin-top: 10px;
+}
+.remembercontainer{
+  margin-top: 20px;
+  width: 200px;
+}
+
+
+.otpandforgotpPWcontainer {
+  align-items: flex-end;
+  float: right;
+  height: 100px;
+  width: 250px;
+  background-color: transparent;
+}
+#loginwithotpbutton {
+  height: 40px;
+  text-decoration: underline;
+  float: right;
+  border: none;
+  background-color: transparent;
+  align-items: right;
+  color: blue;
+  position: relative;
+}
+.otpviewBtton {
+  cursor: pointer;
+  box-shadow:none;
+  transition: 0;
+
+}
+.loginWithPWcontainer{
+  align-items: left;
+  cursor: pointer;
+}
+
+#loginWithPWbutton{
+  height: 40px;
+  text-decoration: underline;
+  float: left;
+  border: none;
+  background-color: transparent;
+  align-items: right;
+  color: blue;
+  position: relative;
+}
+
+#sendCodeInLoginwithPassword {
+  border: none;
+  margin-top: 80px;
+  margin-left: -680px;
+  height: 44px;
+  font-size: 1.375rem;
+  padding: 0 4rem;
+  color: white;
+  border-radius: 22px;
+  
+}
+
+#forgotpasswordbutton {
+  margin-top: 10px;
+  float: right;
+  height: 40px;
+  border: none;
+  background-color: transparent;
+  color: blue;
+  text-align: right;
+  position: relative;
+}
+
+#letsgobutton {
+  border: none;
+  margin-top: 20px;
+  /* margin-left: -320px; */
+  height: 44px;
+  font-size: 1.375rem;
+  padding: 0 4rem;
+  color: white;
+  border-radius: 22px;
+  
+}
+.letGoButtonDisable{
+  background-color: rgb(180, 214, 225);
+}
+.letGoButtonEnable{
+  background-color: rgb(58, 190, 234);
+}
+
+/* h6 {
+  font-size: 1rem;
+  overflow: hidden;
+  color: lightgray;
+} */
+/* .letsgobutton:hover{
+  background-color: #4d58f1;
+} */
+.FooterView{
+  /* background-color: #f0f5f8;
+  height: 300px; */
+  width: 100%;
+  height: 30%;
+  background-color: rgb(230, 243, 248);
+  text-align: center;
+}
+
+.subContainerOfFooter{
+  margin: auto;
+  width: 500px;
+  height: 300px;
+}
+
+/* .footerimageContainer{
+ margin-left: -20px;
+
+} */
+.footerViewButton{
+  margin-top: 10px;
+  box-shadow:none;
+  width: 150px;
+  border-radius: 10px;
+  border-width: 0px;
+  background-color: transparent;
+  cursor: pointer;
+}
+.copyright{
+  margin-top: 30px;
+  width: 400px;
+  height: 30px;
+  font-size: 12px;
+  color: #828282;
+  text-align: center;
+  margin-left: 50px;
+}
+.disclaimerSenCodeContainer{
+  width: 100%;
+  margin-left: 40px;
+}
+
+.disclaimerSenCode{
+  margin-top: 5px;
+  width: 100%;
+  height: 30px;
+  font-size: 15px;
+  color: #828282;
+  text-align: left;
+  margin-left: -30px;
+}
+
+span{
+  margin-left: 15px;
+  color: rgb(0, 102, 255);
+  cursor: pointer;
+}
+
+.forgotPasswordmodal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+.modalotp{
+  margin-left: 25%;
+  margin-top: 8%;
+  position: fixed;
+  height: 50%;
+  width: 50%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+.popup{
+  background-color: white;
+ padding-left: 50px;
+ padding-right: 50px;
+ padding-bottom: 20px;
+  box-shadow: 0px 5px 20px rgb(149, 229, 241);
+  border: 5px;
+  border-color: lightblue;
+
+}
+
+#sendCode{
+  /* background-color:rgb(151, 222, 246); */
+  border-radius: 70px;
+  border: 0ch;
+  padding: 11px 70px;
+  color: white;
+  font-size:20px;
+  font-weight: bold;
+}
+#resendButton{
+  color: rgb(75, 159, 216);
+  border: none;
+  background-color: transparent;
+  font-size: 15px;
+}
+
+.resendH4{
+  text-align: center;
+  color: gray;
+}
+
+.lblotp{
+  font-size: 15px;
+}
+#btncancel{
+  float: right;
+  margin-top: 10px;
+  margin-right: -40px;
+  box-shadow: 0;
+  border: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.stylCountryCode{
+  background-color: orangered;
+}
+.stylEmailDiv{
+  /* background-color: transparent;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  width: 100%; */
+  background-color: white;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+}
+:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+.stylSelectDiv{
+  /* margin-top: 0px;
+  height: 40px;
+      width: 120px;
+      border:none; */
+      width: 120px;
+      height: 100%;
+      border: 0ch;
+      box-shadow: none;
+}
+.stylSelectDiv:hover{
+  border: none;
+  /* box-shadow: none; */
+}
+.stylSelectDiv:focus{
+  border: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+
+#emailInput{
+  border: 0ch;
+  box-shadow: none;
+}
+
+#emailInput :focus{
+  outline: none;
+}
+
+#passwordInput{
+  border-radius: none;
+  margin-top: 0px;
+  height: 25px;
+      width: 780px;
+      /* border:none; */
+}
+.OTPBox{
+  width:60px;
+  height:70px;
+  display: inline-block;
+  margin-right: 10px;
+  text-align: center;
+  box-shadow: lightblue;
+  text-align: center;
+}
+.OTPBox:focus{
+  border: 1px solid #0366EE;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 6px #8cbcfe;
+}
+.OTPtxt{
+  text-align: center;
+  color:black
+}
+
+.stylErrorLabel, .stylInvalidEmailLabel {
+  color: red;
+  font-size: 14px;
+  text-align: left;
+}
