@@ -1,18 +1,19 @@
 import React from "react";
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import countryCodes from '../loginComponent/CountryCodes.json'; 
 import store from "../store/store";
 import OTPViewModal from "../PortalComponent/otpPortalSubview";
 import ForgotPasswordPortal from "../PortalComponent/forgotPasswordSubview";
 import { loginAction } from "../store/root-reducer";
-import { useSelector, useDispatch } from 'react-redux';
+import {useDispatch , connect} from 'react-redux';
 import { resources } from "../Utility/StringResource";
+import {useNavigate} from 'react-router-dom';
 
 const LoginWithPassword = (props) =>{
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
  
-  console.log("store state value = ",store.getState());
   // INITIALIZE ALL STATE HERE
   const [countryCode, setCountryCode] = useState();
   const [InputIsNumber, setInputIsNumber] = useState(false);
@@ -21,45 +22,37 @@ const LoginWithPassword = (props) =>{
   const [IsLoginWithPassword, setIsLoginWithPassword] = useState(true)
   const [showModal, setshowModal] = useState(false);
   const [otpShowModal, setotpShowModal] = useState(false);
-  const [hideErrorLabel, setHideErrorLabelValue] = useState(true);
-  const [isEmailValid, setIsEmailValid] = useState(false);
-
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  
 
     function handleChangeEmail(event) {
+      store.dispatch({type: 'HIDE_ERROR_LABEL' , hideErrorLabel : true});
+
     //TO CHECK INPUT TYPE EITHER EMAIL OR PHONE NUMBER
-    isNaN(event.target.value) ? setInputIsNumber(false) : setInputIsNumber(true);
+    isNaN(document.getElementById("emailInput").value) ? setInputIsNumber(false) : setInputIsNumber(true);
     
-    console.log("email value is = ", event.target.value);
+    let userName = document.getElementById("emailInput").value;
 
     // don't remember from where i copied this code, but this works.
-    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let emailFormat = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    if (re.test(event.target.value)) {
+    if (emailFormat.test(event.target.value)) {
       // this is a valid email address
-      // call setState({email: email}) to update the email
-      // or update the data in redux store.
       setIsEmailValid(true);
-      setemail(event.target.value);
-      dispatch({ type: 'INPUTNUMBER_VALUE', InputIsNumber: InputIsNumber });
-
-      let userName = document.getElementById("emailInput").value;
-
+      setInputIsNumber(false);
       // USING REDUX STORE
-      dispatch({ type: 'EMAIL_VALUE', email: userName });
     }
     else {
       // invalid email, maybe show an error to the user.
       // alert("Please enter the valid email")
       setIsEmailValid(false); 
-      setemail(event.target.value);
-      console.log("Please enter the valid email");
     }
-
-    console.log("InputIsNumber=---", InputIsNumber);
-    if(InputIsNumber == true){
+    setemail(event.target.value);
+    dispatch({ type: 'INPUTNUMBER_VALUE', InputIsNumber: InputIsNumber });
+    dispatch({ type: 'EMAIL_VALUE', email: userName });
+    if(InputIsNumber === true){
       setIsEmailValid(true);
     }
-
   }
   
     const handleChangePassword = (event) => {
@@ -95,49 +88,37 @@ const LoginWithPassword = (props) =>{
    
     // ACTION ON LET GO BUTTON CLICK
     // FOR SAGA 
-    const  letGoButtonAction_saga = () => {
-      console.log("letGoButtonAction_saga action");
+    const letGoButtonAction_saga = () => {
       // THIS FUNCTION IS PRESENT IN REDUCER OF REDUX
-      dispatch(loginAction())
-    } 
-    console.log("store.getState().reducer.hideErrorLabel ---", store.getState().reducer.hideErrorLabel);
+      // props.loginAction()
+      dispatch(loginAction()); 
+     } 
+
+  
+   useEffect(() => {
+   if(props.accessToken && props.accessToken !== ""){
+    navigate('/Dashboard' , {replace: true});
+      } 
+    },[props.accessToken]);
 
     return(
       <>
-     
       <div className="submainView">
-      
              <h1 className='h1'>{resources.LOGIN.WE_ARE_HAPPY_HEADING}</h1>
-             {/* <form autocomplete="off"> */}
-             {/* <div className="buttonView">
-               <button className="mainViewButton">
-                <img src="../Images/google.svg" width="30" alt='dummyPic' /> 
-                 </button>
-               <button className="mainViewButton">
-                <img src="../Images/linkedin.svg" width="30" alt="dummyPic" /> 
-                </button>
-               <button className="mainViewButton">
-                <img src="../Images/outlook.svg" width="30" alt="dummyPic" /> 
-                </button>
-             </div> */}
              <div className="buttonView">
              <button id='googlebtn' class="btn btn-default" >
-              <img src="../Images/google.svg" width="30" />
+              <img src="../Images/google.svg"  alt="googlebtn" width="30" />
             </button>
 
             <button id="Linkdinbtn" class="btn btn-default" >
-              <img src="../Images/linkedin.svg" width="30" />
+              <img src="../Images/linkedin.svg" alt="Linkdinbtn"  width="30" />
             </button>
 
             <button id='outlookbtn' class="btn btn-default" >
-              <img src="../Images/outlook.svg" width="30" />
+              <img src="../Images/outlook.svg" alt="outlookbtn" width="30" />
             </button>
             </div>
             <br></br>
-             {/* <div className='ssoContainer'>
-               <label className="ssoLabelClass">{resources.LOGIN.SSO_COMING_SOON}</label>
-               <hr className="underline" />
-             </div> */}
              <label className='stylErrorLabel' hidden={store.getState().reducer.hideErrorLabel ? true : false}>{resources.LOGIN.INVALID_EMAIL_OR_PWD}</label>
               <br />
              <h6>{resources.LOGIN.SSO_COMING_SOON}</h6>
@@ -149,7 +130,6 @@ const LoginWithPassword = (props) =>{
 
                {InputIsNumber ? (<select className="stylSelectDiv" value={countryCode} 
                onChange={onChangeCountryCode}>
-                {/* store.dispatch({type: 'COUNTRYCODE_VALUE', countryCode: event.target.value })}> */}
                  {countryCodes.map(item => {
                    return (<option>
                      <div key={item.name}>
@@ -191,6 +171,7 @@ const LoginWithPassword = (props) =>{
              <div className="submitbuttoncontainer">
                <button id="letsgobutton" className = {(email === '' || password === '')? 'letGoButtonDisable' : 'letGoButtonEnable'} 
                 disabled={(email === '') || (password === '')} onClick={letGoButtonAction_saga} > {resources.LOGIN.LETS_GO} </button>
+                
              </div>
              
              {/* </form> */}
@@ -201,4 +182,13 @@ const LoginWithPassword = (props) =>{
     )
 }
 
-export default LoginWithPassword;
+//LISTENER FROM SAGA
+const mapStateToProps = state => ({
+  accessToken : state.reducer.tokenReceived,
+  // userRole : state.getRoleApiReducer,
+  
+});
+
+export default connect(mapStateToProps)(LoginWithPassword);
+
+

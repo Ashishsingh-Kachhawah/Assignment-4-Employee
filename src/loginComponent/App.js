@@ -12,7 +12,11 @@ import ReadyToWork from '../ImageComponent/ReadyToWorkImage';
 import LoginWithPassword from './LoginWithPasswordComponent';
 import OTPViewModal from '../PortalComponent/otpPortalSubview';
 import LoginWithAccessPin from './LoginWithAccessPinComponent';
+import {Routes , Route, BrowserRouter} from 'react-router-dom';
+import Dashboard from '../DashBoardComponent/Dashboard';
 
+const loggedIn = window.localStorage.getItem("isLoggedIn")
+ console.log("loggedIn ==========", loggedIn)     
 
 class App extends Component {
   constructor(props) {
@@ -26,15 +30,18 @@ class App extends Component {
       InputIsNumber:false,
       otpShowModal: false,
       IsLoginWithPassword: true,  
+
     }
   }
 
+  
   handleChangeEmail = (event) => {
     //TO CHECK INPUT TYPE EITHER EMAIL OR PHONE NUMBER
     isNaN(event.target.value) ? this.setState({ InputIsNumber: false }) : this.setState({ InputIsNumber: true })
     this.setState({ email: event.target.value });
   }
 
+  
   handleChangePassword = (event) => {
     this.setState({ password: event.target.value })
   }
@@ -62,33 +69,40 @@ class App extends Component {
     this.setState({ otpShowModal: false });
   }
 
+
   render() {
     const { email, password } = this.state;
-
-     
+   
     return (
+      <BrowserRouter>
+
       <div className="App">
        <Navigator environment={this.state.environment} handleChange={this.handleChange}/>
         <div className="mainView">
         
          {/* localStorage.getItem('IsLoginWithPassword') */}
-          {this.state.IsLoginWithPassword &&  
-          <LoginWithPassword handleLoginWithPassword = {this.LoginWithAccessPinBtnAction} environment = {this.state.environment}/>}
+        
+
+         <Routes>
+         <Route  path="/" element= {this.state.IsLoginWithPassword && <LoginWithPassword handleLoginWithPassword = {this.LoginWithAccessPinBtnAction} environment = {this.state.environment}/> }/>
+           
+  {/* ADD THIS TO LAND TO DASHBOARD IF USER IS ALREADY LOGGED IN          */}
+           {/* <Route  path="/" element= {loggedIn ? <Dashboard /> : (this.state.IsLoginWithPassword && <LoginWithPassword handleLoginWithPassword = {this.LoginWithAccessPinBtnAction} environment = {this.state.environment}/>) } /> */}
+           <Route  path="/Dashboard" element={<Dashboard />} />
+         </Routes>
+
           {!this.state.IsLoginWithPassword && 
          <LoginWithAccessPin LoginWithPassword = {this.LoginWithPassword}/>
           }
-          <ReadyToWork/>
-
-  
+          <ReadyToWork />
 
         </div>
         <FooterView />
       </div>
+    </BrowserRouter>
     )
-
   }
 
 }
 
 export default App;
-

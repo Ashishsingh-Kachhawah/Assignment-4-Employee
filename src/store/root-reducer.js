@@ -2,7 +2,11 @@
 import _default from "react-redux/es/components/connect"
 import { combineReducers, createStore } from "redux";
 import * as type from '../store/types';
+import store from "./store";
 
+const initialStateHook = {     
+     tokenReceived : "",
+}
 
 const INITIAL_STATE = {
       environment: "staging",
@@ -16,12 +20,21 @@ const INITIAL_STATE = {
       client_id:"",
       client_secret:"",
       hideErrorLabel: true,
-
+      isLoginSuccessful : false,
+      tokenReceived : "",
 }
 
 const INITIAL_STATE_LOGIN = {
     accessToken:"",
-    message:""
+    message:"",
+}
+
+const INITIAL_STATE_LOGIN_ROLE = {
+    response:"",
+}
+
+const INITIAL_STATE_TEAM_MEMBERS = {
+    responseTM : "",
 }
 
 // FUNCTION IS CALLED FROM LET GO BUTTON ACTION TO RETURN ACTION TYPE
@@ -31,6 +44,17 @@ export function loginAction() {
     }
   }
 
+  export function getUserRoleWhileLogin() {
+    return {
+      type: type.GET_USER_ROLE,
+    }
+  }
+
+  export function getTeamMemberListWhileLogin() {
+    return {
+      type: type.GET_TEAM_MEMBER_REQUEST,
+    }
+  }
 const environmentrReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case type.ENVIRONMENT_VALUE:
@@ -142,7 +166,6 @@ const isLoginWithPasswordReducer = (state = INITIAL_STATE, action) => {
 const reducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case type.ENVIRONMENT_VALUE:
-            console.log("ENVIRONMENT_VALUE triggered this case = ",action.environment);
             return{
                 ...state,
                 environment: action.environment
@@ -198,13 +221,20 @@ case type.HIDE_ERROR_LABEL:
         ...state,
         hideErrorLabel : action.hideErrorLabel
     }
+case type.IS_LOGIN_SUCCESSFUL:
+    return{
+        ...state,
+        isLoginSuccessful : action.isLoginSuccessful
+    }
+case type.TOKEN_RECEIVED:
+    return{
+        ...state,
+        tokenReceived : action.tokenReceived
+    }
         default:
             return state;
     }
 }
-
-// export const store = createStore(reducer)
-// console.log("initial state = ", store.getState())
 
 // REDUCER FOR LOGIN API
 const loginApiReducer = (state = INITIAL_STATE_LOGIN, action) => {
@@ -214,17 +244,69 @@ const loginApiReducer = (state = INITIAL_STATE_LOGIN, action) => {
                 ...state,
         }
         case type.LOGIN_SUCCESS:
-            console.log("LOGIN_SUCCESS_after action in rootreducer=== ",action.loginuser);
             return{
                 ...state,
-                accessToken: state.accessToken
+                accessToken: state.accessToken,
+                isLoginSuccessful: true
         }
         case type.LOGIN_FAILED:
             return{
                 ...state,
-                message: state.message
+                message: state.message,
+                accessToken : '',
+                isLoginSuccessful: false
         }
         default:
+            return state;
+    }
+}
+
+//REDUCER TO GET THE USER ROLE
+const getRoleApiReducer = (state = INITIAL_STATE_LOGIN_ROLE, action) => {
+
+    switch (action.type) {
+        case type.GET_USER_ROLE:
+            return{
+                ...state,
+      }
+        case type.GET_ROLE_SUCCESS:
+             return{
+                ...state,
+                response : action.response,
+        }
+        case type.GET_ROLE_FAILED:
+            return{
+                ...state,
+                // roleMessage: action.roleMessage,
+        }
+        case type.GET_USER_RESPONSE:
+            return{
+                ...state,
+                response : action.response,
+            }
+        default:
+            return state;
+    }
+}
+
+const getTeamMemberApiReducer = (state = INITIAL_STATE_TEAM_MEMBERS, action) => {
+
+    switch (action.type) {
+        case type.GET_TEAM_MEMBER_REQUEST:
+            return{
+                ...state,
+      }
+        case type.GET_ROLE_SUCCESS:
+             return{
+                ...state,
+                responseTM : action.responseTM,
+        }
+        case type.GET_ROLE_FAILED:
+            return{
+                ...state,
+                // roleMessage: action.roleMessage,
+        }
+         default:
             return state;
     }
 }
@@ -232,5 +314,7 @@ const loginApiReducer = (state = INITIAL_STATE_LOGIN, action) => {
 // COMBINE ALL REDUCERS
 export const rootReducer = combineReducers({
     reducer: reducer,
-    loginApiReducer : loginApiReducer
+    loginApiReducer : loginApiReducer,
+    getRoleApiReducer : getRoleApiReducer,
+    getTeamMemberApiReducer : getTeamMemberApiReducer,
 })
