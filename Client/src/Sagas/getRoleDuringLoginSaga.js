@@ -13,7 +13,7 @@ function getRoleAPI(props) {
   return fetch(url, {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${store.getState().reducer.tokenReceived}`,
+      Authorization: `Bearer ${window.localStorage.getItem("bearerToken")}`,
       "Content-Type": "application/json",
     }
   })

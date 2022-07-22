@@ -98,6 +98,8 @@ const LoginWithPassword = (props) =>{
   
    useEffect(() => {
    if(props.accessToken && props.accessToken !== ""){
+          window.location.reload();
+
     navigate('/Dashboard' , {replace: false});
       } 
     },[props.accessToken]);

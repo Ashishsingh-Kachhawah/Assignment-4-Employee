@@ -17,7 +17,9 @@ const reloadCount = Number(sessionStorage.getItem('reloadCount')) || 0;
   useEffect(() => {
     if(reloadCount < 2) {
       sessionStorage.setItem('reloadCount', String(reloadCount + 1));
-      window.location.reload();
+      // window.location.reload();
+      // this.forceUpdate();
+
     } else {
       sessionStorage.removeItem('reloadCount');
     }

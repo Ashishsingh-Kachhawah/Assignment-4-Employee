@@ -40,7 +40,7 @@ const Emplyoyeenamelist = (props) =>{
   // console.log("$$$$$$$$$$$$");
   // console.log("Here", EmployeeListArray);
     const rows = employeeList.map((rows, index) => {
-      console.log("Printing Rows", rows)
+      // console.log("Printing Rows", rows)
         return(
             <tr key={index}>
                 <td onClick={() =>{{ props.setIndex(index)} {audio.SelectClick.play()}} }>{rows.employeeName}</td>

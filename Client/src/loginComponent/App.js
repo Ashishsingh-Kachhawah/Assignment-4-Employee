@@ -15,10 +15,11 @@ import LoginWithAccessPin from './LoginWithAccessPinComponent';
 import {Routes , Route, BrowserRouter} from 'react-router-dom';
 import Dashboard from '../DashBoardComponent/Dashboard';
 import DashboardNavBar from '../navigation/DashboardNavBar';
+import store from '../store/store';
 
 const loggedIn = window.localStorage.getItem("isLoggedIn")
- console.log("loggedIn ==========", loggedIn)     
-
+ console.log("loggedIn ==========", loggedIn)    
+ 
 class App extends Component {
   constructor(props) {
     super(props);
@@ -31,10 +32,18 @@ class App extends Component {
       InputIsNumber:false,
       otpShowModal: false,
       IsLoginWithPassword: true,  
-
+      isUserLoggedIn : false,
     }
+    // var isTokenReceived = store.getState().reducer.tokenReceived;
+    //   console.log("APPP TOKEN === ", isTokenReceived);
+
+    // if(this.isTokenReceived){
+    //   this.state.isUserLoggedIn(true);
+    // }
+
   }
 
+  
   
   handleChangeEmail = (event) => {
     //TO CHECK INPUT TYPE EITHER EMAIL OR PHONE NUMBER
@@ -80,8 +89,8 @@ class App extends Component {
       <div className="App">
 
       {loggedIn ? <DashboardNavBar /> : <Navigator environment={this.state.environment} handleChange={this.handleChange}/> }
-      {/* <Navigator environment={this.state.environment} handleChange={this.handleChange}/>  */}
-       
+      
+      {/* <Navigator environment={this.state.environment} handleChange={this.handleChange}/> */}
         <div className="mainView">
         
          {/* localStorage.getItem('IsLoginWithPassword') */}

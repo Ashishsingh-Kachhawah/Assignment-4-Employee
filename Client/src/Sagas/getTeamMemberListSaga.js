@@ -7,8 +7,9 @@ import {
 } from "../store/types";
 
 async function getTeamMemberAPI(props) {
-  var yourToken = store.getState().reducer.tokenReceived;
-    let url ="/api/v2/company_users";
+  // var yourToken = store.getState().reducer.tokenReceived;
+  const yourToken = window.localStorage.getItem("bearerToken")
+    let url ="/api/v2/company_users?include=user, user/image, role&page=1&per_page=50";
       console.log("URL <><><></><></><>", url);
       console.log( `Bearer ${yourToken}`);
     try {
@@ -19,9 +20,7 @@ async function getTeamMemberAPI(props) {
         "Content-Type": "application/json",
       }
     });
-    console.log("res --- ", res);
     const dataa = await res.json();
-    console.log("dataa ==== ", dataa);
     return dataa;
   } catch (e) {
     console.log("eeeee === ", e);
@@ -34,6 +33,7 @@ async function getTeamMemberAPI(props) {
   function* fetchTeamMemberListAPI(action) {
     try {
       const responseTM = yield call(getTeamMemberAPI);
+      console.log("The response === ", responseTM);
       yield put({type: GET_TEAM_MEMBER_SUCCESS, responseTM : responseTM});
     } catch (error) {
       yield put({ type: GET_TEAM_MEMBER_FAILED, error });

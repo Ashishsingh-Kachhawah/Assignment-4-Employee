@@ -4,9 +4,9 @@ import { combineReducers, createStore } from "redux";
 import * as type from '../store/types';
 import store from "./store";
 
-const initialStateHook = {     
-     tokenReceived : "",
-}
+// const initialStateHook = {     
+//      tokenReceived : "",
+// }
 
 const INITIAL_STATE = {
       environment: "staging",
@@ -289,6 +289,7 @@ const getRoleApiReducer = (state = INITIAL_STATE_LOGIN_ROLE, action) => {
     }
 }
 
+//TO GET THE LIST OF TEAM MEMBER
 const getTeamMemberApiReducer = (state = INITIAL_STATE_TEAM_MEMBERS, action) => {
 
     switch (action.type) {
@@ -296,12 +297,12 @@ const getTeamMemberApiReducer = (state = INITIAL_STATE_TEAM_MEMBERS, action) => 
             return{
                 ...state,
       }
-        case type.GET_ROLE_SUCCESS:
+        case type.GET_TEAM_MEMBER_SUCCESS:
              return{
                 ...state,
                 responseTM : action.responseTM,
         }
-        case type.GET_ROLE_FAILED:
+        case type.GET_TEAM_MEMBER_FAILED:
             return{
                 ...state,
                 // roleMessage: action.roleMessage,

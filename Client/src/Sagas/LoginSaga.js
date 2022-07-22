@@ -43,6 +43,8 @@ function LoginApi (props)  {
            store.dispatch({type: "TOKEN_RECEIVED" , tokenReceived : data.access_token});
            // TO KEEP THE USER LOGIN TILL HE LOGS  OUT
            window.localStorage.setItem("isLoggedIn", true);
+           window.localStorage.setItem("bearerToken", data.access_token);
+
            //In Logout func ---
            //window.localStorage.removeItem("isLoggedIn");
            //window.location.href = "/";
