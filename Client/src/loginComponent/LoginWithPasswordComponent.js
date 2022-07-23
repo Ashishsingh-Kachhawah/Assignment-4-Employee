@@ -105,7 +105,7 @@ const LoginWithPassword = (props) =>{
     },[props.accessToken]);
 
     return(
-      <>
+     <React.Fragment>
       <div className="submainView">
              <h1 className='h1'>{resources.LOGIN.WE_ARE_HAPPY_HEADING}</h1>
              <div className="buttonView">
@@ -181,7 +181,7 @@ const LoginWithPassword = (props) =>{
            </div>
            
  
-     </>
+           </React.Fragment>
     )
 }
 

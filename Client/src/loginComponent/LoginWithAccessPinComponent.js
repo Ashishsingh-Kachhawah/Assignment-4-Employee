@@ -84,7 +84,7 @@ const LoginWithAccessPin = (props) =>{
   }
 
     return(
-        <>
+        <React.Fragment>
 
 <div className="submainView">
             <h1 className='h1'>{resources.LOGIN.WE_ARE_HAPPY_HEADING}</h1>
@@ -121,7 +121,7 @@ const LoginWithAccessPin = (props) =>{
             </div>
           </div>
 
-        </>
+          </React.Fragment>
     )
 }
 

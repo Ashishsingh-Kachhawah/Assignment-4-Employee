@@ -18,7 +18,7 @@ const DashboardNavBar = () => {
   }
 
   return (
-    <>
+    <React.Fragment>
       <nav className="DashboardNavBar">
         <div id="imgcontainer">
           <img id="imglogo" src="../Images/Uclogo.png" alt="dummyPic0" width={170} />
@@ -36,8 +36,8 @@ const DashboardNavBar = () => {
         </div>
       </nav>
 
-
-    </>
+</React.Fragment>
+   
   )
 };
 

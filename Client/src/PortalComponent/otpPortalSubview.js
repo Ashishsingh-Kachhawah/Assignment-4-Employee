@@ -1,3 +1,4 @@
+import React from "react";
 import InputFields from "../loginComponent/OtpInputField";
 import { resources } from "../Utility/StringResource";
 import OtpModal from "./OTPportalView";
@@ -37,9 +38,9 @@ const OTPViewModal = (props) => {
               </OtpModal>
             ) : null;
             return(
-                <>
+               <React.Fragment>
                     {otpModalView}
-                </>
+                    </React.Fragment>
             )
      
 }
