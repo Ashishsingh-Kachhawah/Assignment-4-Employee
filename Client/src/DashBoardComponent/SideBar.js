@@ -53,7 +53,7 @@ function getEmployeeDetails(){
         console.log("response data employeeDetailsArray => ",employeeDetailsArray);
       })
       .catch((error) => {
-        console.log("Error = ",error);
+        console.log("Error sidebar.js getEmployeeDetails= ",error);
       })
 }
 
