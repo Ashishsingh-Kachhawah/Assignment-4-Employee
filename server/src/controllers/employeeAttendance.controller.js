@@ -15,9 +15,9 @@ client.connect();
 client.query(`CREATE TABLE employeeattendance(
    attendance_id INT GENERATED ALWAYS AS IDENTITY,
    id INT,
-   date TIMESTAMPTZ NOT NULL,
-   login_time TIMESTAMPTZ NOT NULL,
-   logout_time TIMESTAMPTZ NOT NULL,
+   date DATE NOT NULL,
+   login_time TIME NOT NULL,
+   logout_time TIME NOT NULL,
    PRIMARY KEY(attendance_id),
    CONSTRAINT fk_employee
       FOREIGN KEY(id) 
