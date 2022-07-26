@@ -10,7 +10,7 @@ employeeDetailsRouter.use((req, res, next) => {
 });
 
 employeeDetailsRouter.post("/", employeeDetailsController.postEmployeeDetails);
-employeeDetailsRouter.get("/", employeeDetailsController.getEmployeeDetails );
+employeeDetailsRouter.get("/", employeeDetailsController.getEmployeeDetails);
 employeeDetailsRouter.get("/:id", employeeDetailsController.getIndividualEmployee);
 
 module.exports = employeeDetailsRouter;
