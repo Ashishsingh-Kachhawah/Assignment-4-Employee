@@ -47,7 +47,7 @@ app.use(express.json());
 app.use("/employeedetails", cors(),  employeeDetailsRouter);
 
 // RELATED TO ATTENDANCE
-// app.use("/employeeattendance", employeeAttendanceRouter);
+app.use("/employeeattendance", employeeAttendanceRouter);
 
 // RELATED TO LOCATION
 app.use("/employeelocation", employeeLocationRouter);

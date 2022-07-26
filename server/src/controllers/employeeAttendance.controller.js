@@ -22,14 +22,27 @@ client.query(`CREATE TABLE employeeattendance(
    CONSTRAINT fk_employee
       FOREIGN KEY(id) 
 	  REFERENCES employeedetails(id)
-)`,(error, res) =>{
+) `,(error, res) =>{
    if(!error){
       console.log("employeeAttendance:",res.rows);
    }else{
        console.log("employeeAttendanceError :",error.message);
    }
-   client.end;})
-
+}
+)
+client.query(`COPY employeeattendance(attendance_id,id, date,login_time,logout_time)
+FROM '/Users/apple/Documents/Assignment4Uc/server/src/models/employeeattendance.csv'
+DELIMITER ','
+CSV HEADER`,
+  (error, res) => {
+    if (!error) {
+      console.log("employeeAttendancecsv:", res.rows);
+    } else {
+      console.log("employeeAttendancecsvError :", error.message);
+    }
+  }
+);
+client.end;
 // function postEmployeeAttendance(req, res){
 
 //     if(!req.body.employee_id){
