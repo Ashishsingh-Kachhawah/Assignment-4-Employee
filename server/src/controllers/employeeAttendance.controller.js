@@ -1,4 +1,4 @@
-const employeeAttendanceModel = require("../models/employeeAttendance.model")
+// const employeeAttendanceModel = require("../models/employeeAttendance.model")
 
 const {Client} = require('pg')
 

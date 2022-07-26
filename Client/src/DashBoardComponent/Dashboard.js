@@ -32,7 +32,7 @@ let readyToGetTM = '';
 const [userIsAdmin , setUserIsAdmin] = useState(false);
 
   const getIdOfCompany = async() => {
-    await fetch("https://powercooling.staging.utilizecore.com/api/v2/companies/profile")
+    await fetch("/api/v2/companies/profile")
     .then((res) => {
       return res.json();
     })
