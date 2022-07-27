@@ -29,7 +29,7 @@ const getEmployeeattendance = () => {
       })
 }
 
-export default function Attendance() {
+export default function Attendance(props) {
   const [employeeIndex, setemployeeIndex] = useState();
   console.log("index set sideBar ====", employeeIndex);
   getEmployeeattendance();
@@ -82,11 +82,11 @@ export default function Attendance() {
   return (
     <React.Fragment>
       <div className='MainAttendanceContainer'>
-        <div className={(isAdmin == true) ? 'UserListAdmin' : 'UserListNoramlUser' }>
-        {isAdmin &&  
+        <div className={(props.userIsAdmin == true) ? 'UserListAdmin' : 'UserListNoramlUser' }>
+        {props.userIsAdmin &&  
           <SideDrawer setIndex={setIndex} />}
         </div>
-        <div className={(isAdmin == true) ? 'AttendanceTableAdminUser' : 'AttendanceTableNormalUser' }>
+        <div className={(props.userIsAdmin == true) ? 'AttendanceTableAdminUser' : 'AttendanceTableNormalUser' }>
 
           <Table id='AttendanceData'  className="table table-dark table-striped" size="sm" >
 
