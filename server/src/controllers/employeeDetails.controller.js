@@ -6,7 +6,7 @@ const client = new Client({
     host: "localhost",
     user: "postgres",
     port: 5432,
-    password: "Admin@123",
+    password: "admin#123",
     database: "postgres"
 })
 
@@ -33,9 +33,9 @@ client.query(
   `CREATE TABLE employeeattendance(
    attendance_id INT GENERATED ALWAYS AS IDENTITY,
    id INT,
-   date DATE NOT NULL,
-   login_time TIME NOT NULL,
-   logout_time TIME NOT NULL,
+   date TIMESTAMPTZ NOT NULL,
+   login_time TIMESTAMPTZ NOT NULL,
+   logout_time TIMESTAMPTZ NOT NULL,
    PRIMARY KEY(attendance_id),
    CONSTRAINT fk_employee
       FOREIGN KEY(id) 
@@ -51,7 +51,7 @@ client.query(
 );
 client.query(
   `COPY employeeattendance(attendance_id,id, date,login_time,logout_time)
-FROM '/Users/apple/Documents/Assignment4Uc/server/src/models/employeeattendance.csv'
+FROM '/Users/darios/Assignment-4-Employee/server/src/models/employeeattendance.csv'
 DELIMITER ','
 CSV HEADER`,
   (error, res) => {

@@ -6,10 +6,34 @@ import SideDrawer from './SideBar';
 import '../cssComponents/Dashboard.css'
 // import * as audio from './Sounds'
 
+var employeeAttendanceArray = [];
+const getEmployeeattendance = () => {
+  console.log("employeeattendance");
+  fetch("http://127.0.0.1:3002/employeeattendance",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "http://127.0.0.1:3002"
+        },
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("response data getEmployeeattendance = ", data);
+        employeeAttendanceArray = data;
+        // window.localStorage.setItem("employeeDetails", data);
+        console.log("response data getEmployeeattendance => ",employeeAttendanceArray);
+      })
+      .catch((error) => {
+        console.log("Error sidebar.js getEmployeeattendance= ",error);
+      })
+}
+
 export default function Attendance() {
   const [employeeIndex, setemployeeIndex] = useState();
   console.log("index set sideBar ====", employeeIndex);
-  const [localemployeelist, setlocalemployeelist] = useState(employeeList);
+  getEmployeeattendance();
+  const [localemployeelist, setlocalemployeelist] = useState(employeeAttendanceArray);
   console.log(employeeList);
   const [isAdmin, setisAdmin] = useState(true);
 
@@ -21,7 +45,6 @@ export default function Attendance() {
     return (
       <thead>
         <tr>
-          <th>employeeId</th>
           <th>LogIn</th>
           <th>LogOut</th>
         </tr>
@@ -34,9 +57,9 @@ export default function Attendance() {
     const rows = localemployeelist.map((row, index) => {
       return (
         <tr key={index}>
-          <td>{row.employeeId}</td>
-          <td>{row.LogIn}</td>
-          <td>{row.LogOut}</td>
+          <td>{row.id}</td>
+          <td>{row.login_time}</td>
+          <td>{row.logout_time}</td>
         </tr>
       )
     })
@@ -48,7 +71,7 @@ export default function Attendance() {
     setemployeeIndex(index);
     // const updatedItems = employeeList.filter(index);
     var updatedItems = [];
-    updatedItems.push(employeeList[index]); 
+    updatedItems.push(employeeAttendanceArray[index]); 
     setlocalemployeelist(updatedItems);
     console.log("Upadates List ",updatedItems);
   }
