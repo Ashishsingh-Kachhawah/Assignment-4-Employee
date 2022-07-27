@@ -51,7 +51,7 @@ client.query(
 );
 client.query(
   `COPY employeeattendance(attendance_id,id, date,login_time,logout_time)
-FROM '/Users/darios/Assignment-4-Employee/server/src/models/employeeattendance.csv'
+FROM '/Users/apple/Documents/Assignment4Uc/server/src/models/employeeattendance.csv'
 DELIMITER ','
 CSV HEADER`,
   (error, res) => {
