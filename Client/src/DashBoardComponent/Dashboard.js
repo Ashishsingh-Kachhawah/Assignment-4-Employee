@@ -68,7 +68,7 @@ const [userIsAdmin , setUserIsAdmin] = useState(false);
       }
       else{
         console.log("He is the Normal User === > ");
-        // setUserIsAdmin(false);
+        setUserIsAdmin(false);
       }
     }
   }
@@ -146,7 +146,7 @@ const [userIsAdmin , setUserIsAdmin] = useState(false);
         <DateSelector />
         <div>
           <div className="UserList">{/* <SideDrawer /> */}</div>
-          {IsAttendance && <Attendance />}
+          {IsAttendance && <Attendance userIsAdmin={userIsAdmin}/>}
           {!IsAttendance && (
             <GoogleMap
               center={{ lat: 21.161639, lng: 79.659862 }}
