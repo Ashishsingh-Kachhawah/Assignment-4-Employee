@@ -152,6 +152,7 @@ const [userIsAdmin , setUserIsAdmin] = useState(false);
               center={{ lat: 21.161639, lng: 79.659862 }}
               zoom={14}
               data={route}
+              userIsAdmin={userIsAdmin}
             />
           )}
         </div>
