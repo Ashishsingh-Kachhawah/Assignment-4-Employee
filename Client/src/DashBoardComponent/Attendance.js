@@ -45,6 +45,7 @@ export default function Attendance() {
     return (
       <thead>
         <tr>
+          <th>EmployeeId</th>
           <th>LogIn</th>
           <th>LogOut</th>
         </tr>
