@@ -6,7 +6,7 @@ const client = new Client({
     host: "localhost",
     user: "postgres",
     port: 5432,
-    password: "Admin@123",
+    password: "admin#123",
     database: "postgres"
 })
 
@@ -27,8 +27,42 @@ client.query(`CREATE  TABLE IF NOT EXISTS employeedetails(id SERIAL PRIMARY KEY,
     }else{
         console.log(error.message);
     }
-    client.end;
+    // client.end;
 })
+client.query(
+  `CREATE TABLE employeeattendance(
+   attendance_id INT GENERATED ALWAYS AS IDENTITY,
+   id INT,
+   date DATE NOT NULL,
+   login_time TIME NOT NULL,
+   logout_time TIME NOT NULL,
+   PRIMARY KEY(attendance_id),
+   CONSTRAINT fk_employee
+      FOREIGN KEY(id) 
+	  REFERENCES employeedetails(id)
+) `,
+  (error, res) => {
+    if (!error) {
+      console.log("employeeAttendance:", res.rows);
+    } else {
+      console.log("employeeAttendanceError :", error.message);
+    }
+  }
+);
+client.query(
+  `COPY employeeattendance(attendance_id,id, date,login_time,logout_time)
+FROM '/Users/darios/Assignment-4-Employee/server/src/models/employeeattendance.csv'
+DELIMITER ','
+CSV HEADER`,
+  (error, res) => {
+    if (!error) {
+      console.log("employeeAttendancecsv:", res.rows);
+    } else {
+      console.log("employeeAttendancecsvError :", error.message);
+    }
+  }
+);
+client.end;
 
 // function postEmployeeDetails(req, res){
 

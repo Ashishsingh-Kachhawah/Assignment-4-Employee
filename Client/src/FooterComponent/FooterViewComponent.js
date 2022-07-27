@@ -1,8 +1,9 @@
+import React from "react";
 import { resources } from "../Utility/StringResource";
 
 const FooterView = () => {
     return (
-      <>
+      <React.Fragment>
         <div className="FooterView">
           <div className="subContainerOfFooter">
             <div className="footerimageContainer">
@@ -20,7 +21,7 @@ const FooterView = () => {
           </div>
   
         </div>
-      </>
+        </React.Fragment>
     )
   }
 

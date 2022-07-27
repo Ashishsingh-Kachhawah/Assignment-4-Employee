@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useDispatch } from 'react-redux';
 import { resources } from '../Utility/StringResource';
@@ -56,7 +56,7 @@ const loggedIn = window.localStorage.getItem("isLoggedIn")
       audio.Error.play()
     }
   return (
-    <>
+    <React.Fragment>
     <nav>
     <div id="imageContainer">
       <img src="../Images/utilizecoreLogo.png" alt="dummyPic" width={200} />
@@ -75,7 +75,7 @@ const loggedIn = window.localStorage.getItem("isLoggedIn")
         </button>
         </div> */}
   </nav>
-    </>
+  </React.Fragment>
   )
 }
  

@@ -93,7 +93,7 @@ export class GoogleMap extends Component {
   render() {
 
     return (
-      <>
+     
         <div className='MapMainContaioner'>
           <div className={(this.state.isAdmin == true) ? 'UserListAdmin' : 'UserListNoramlUser'}>
             {this.state.isAdmin &&
@@ -144,7 +144,7 @@ export class GoogleMap extends Component {
             </Map>
           </div>
         </div>
-      </>
+     
     );
   }
 }

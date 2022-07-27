@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import countryCodes from '../loginComponent/CountryCodes.json'; 
 // import { store } from '../store/store';
 import store from "../store/store";
@@ -121,9 +121,9 @@ import { resources } from '../Utility/StringResource';
     </ForgotPasswordModalView>
 ) : null;
 return(
-    <>
+    <React.Fragment>
         {modalforforgotpw}
-    </>
+        </React.Fragment>
 )
  }
 

@@ -88,6 +88,8 @@ body {
     background-color:slateblue;
   } */
   .DatapickerDiv{
+    display: flex;
+    flex-direction: row;
     background-color: lightcyan;
     width: 100%;
     height: fit-content;
@@ -95,18 +97,21 @@ body {
     padding: 10px;
   }
   .selectDatelable{
+    
     margin-left: 500px;
     font-weight: bold;
   }
   .datepicker{
+    flex-wrap:nowrap;
+    justify-content: baseline;
     margin-left: 20px;
     font-weight: bold;
     width: 400px;
     height: 30px;
     background-color: transparent;
     /* box-shadow: lightblue; */
-    border-color: transparent;
-    border: none;
+    /* border-color: transparent;
+    border: none; */
     /* background-color: transparent; */
   }
   

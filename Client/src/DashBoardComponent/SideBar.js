@@ -34,20 +34,46 @@ var EmployeeListArray = [];
 //       })
 // }
 
+var employeeDetailsArray = [];
+function getEmployeeDetails(){
+  console.log("getEmployeeDetails");
+  fetch("http://127.0.0.1:3002/employeedetails",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "http://127.0.0.1:3002"
+        },
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("response data getEmployeeDetails = ", data);
+        employeeDetailsArray = data;
+        // window.localStorage.setItem("employeeDetails", data);
+        console.log("response data employeeDetailsArray => ",employeeDetailsArray);
+      })
+      .catch((error) => {
+        console.log("Error sidebar.js getEmployeeDetails= ",error);
+      })
+}
 
 const Emplyoyeenamelist = (props) =>{
-  // GetEmployeeList();
-  // console.log("$$$$$$$$$$$$");
-  // console.log("Here", EmployeeListArray);
-    const rows = employeeList.map((rows, index) => {
+  // console.log("window.localStorage.getItem ==>",window.localStorage.getItem("employeeDetails"));
+  if(employeeDetailsArray.length === 0){
+    getEmployeeDetails();
+  }
+  if(employeeDetailsArray.length > 0){
+    const rows = employeeDetailsArray.map((rows, index) => {
       // console.log("Printing Rows", rows)
         return(
             <tr key={index}>
-                <td onClick={() =>{{ props.setIndex(index)} {audio.SelectClick.play()}} }>{rows.employeeName}</td>
+                <td onClick={() =>{{ props.setIndex(index)} {audio.SelectClick.play()}} }>{rows.full_name}</td>
             </tr>
         )
     })
     return <tbody>{rows}</tbody>
+  }
+   
 }
 const UserHeader = () => {
     return (

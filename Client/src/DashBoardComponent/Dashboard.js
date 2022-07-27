@@ -32,7 +32,7 @@ let readyToGetTM = '';
 const [userIsAdmin , setUserIsAdmin] = useState(false);
 
   const getIdOfCompany = async() => {
-    await fetch("https://powercooling.staging.utilizecore.com/api/v2/companies/profile")
+    await fetch("/api/v2/companies/profile")
     .then((res) => {
       return res.json();
     })
@@ -91,6 +91,7 @@ const [userIsAdmin , setUserIsAdmin] = useState(false);
       }
     }
       console.log("Team Members are  === ", props);
+      // console.log("Team Members are  === ",);
       var route = [
         { lat: 21.161639, lng: 79.659862 },
         { lat: 21.173117, lng: 79.658434 },
