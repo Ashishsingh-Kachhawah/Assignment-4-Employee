@@ -95,12 +95,12 @@ export class GoogleMap extends Component {
     return (
      
         <div className='MapMainContaioner'>
-          <div className={(this.state.isAdmin == true) ? 'UserListAdmin' : 'UserListNoramlUser'}>
-            {this.state.isAdmin &&
+          <div className={(this.props.userIsAdmin == true) ? 'UserListAdmin' : 'UserListNoramlUser'}>
+            {this.props.userIsAdmin &&
               <SideDrawer />}
 
           </div>
-          <div className={(this.state.isAdmin == true) ? 'MapContainerAdminUser' : 'MapContainerNormalUser'}>
+          <div className={(this.props.userIsAdmin == true) ? 'MapContainerAdminUser' : 'MapContainerNormalUser'}>
             <button onClick={this.handleMapReady} id="routeButton">Route</button>
             <Map
               google={this.props.google}
