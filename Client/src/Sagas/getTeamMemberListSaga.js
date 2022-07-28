@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import company_users from "../DashBoardComponent/Response";
-import store from "../store/store";
+// import company_users from "../DashBoardComponent/Response";
+// import store from "../store/store";
 import {
     GET_TEAM_MEMBER_REQUEST,
     GET_TEAM_MEMBER_SUCCESS,

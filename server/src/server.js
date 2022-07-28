@@ -50,7 +50,7 @@ app.use("/employeedetails", cors(),  employeeDetailsRouter);
 app.use("/employeeattendance", cors(), employeeAttendanceRouter);
 
 // RELATED TO LOCATION
-app.use("/employeelocation", employeeLocationRouter);
+app.use("/employeelocation", cors(), employeeLocationRouter);
 
  app.listen(PORT, () => {
     console.log(`Listening on ${PORT}`);

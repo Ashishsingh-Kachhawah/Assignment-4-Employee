@@ -3,8 +3,8 @@ import React from 'react'
 import '../cssComponents/Dashboard.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import Table from 'react-bootstrap/Table';
-import employeeList from './MockResponse';
-import company_users from './Response';
+// import employeeList from './MockResponse';
+// import company_users from './Response';
 import * as audio from './Sounds'
 
 var EmployeeListArray = [];
