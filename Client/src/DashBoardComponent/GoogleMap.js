@@ -66,10 +66,10 @@ export class GoogleMap extends Component {
     directionsDisplay.setMap(map);
 
 
-    const waypoints = this.props.data.map(item => {
-      console.log("waypoints ", { lat: item.lat, lng: item.lng });
+    const waypoints = employeelocationArray.map(item => {
+      console.log("waypoints ", { lat: item.location[0].latitude, lng: item.location[0].longitude });
       return {
-        location: { lat: item.lat, lng: item.lng },
+        location: { lat: item.location[0].latitude, lng: item.location[0].longitude },
         stopover: true
       }
     })

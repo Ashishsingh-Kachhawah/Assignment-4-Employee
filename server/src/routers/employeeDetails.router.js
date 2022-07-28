@@ -12,5 +12,5 @@ employeeDetailsRouter.use((req, res, next) => {
 employeeDetailsRouter.post("/", employeeDetailsController.postEmployeeDetails);
 employeeDetailsRouter.get("/", employeeDetailsController.getEmployeeDetails);
 employeeDetailsRouter.get("/:id", employeeDetailsController.getIndividualEmployee);
-
+employeeDetailsRouter.delete("/", employeeDetailsController.deleteEmployeeDetails);
 module.exports = employeeDetailsRouter;
