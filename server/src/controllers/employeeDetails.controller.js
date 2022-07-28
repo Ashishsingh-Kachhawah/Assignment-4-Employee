@@ -107,11 +107,6 @@ function postEmployeeDetails(request, response) {
    })
  }
 
-//  function getEmployeeDetails(req, res){
-//     res.send(employeeDetailsModel);
-//  }
-
-
 function getEmployeeDetails(req, res){
    // res.send(employeeDetailsModel);
    client.query('SELECT * FROM employeedetails ORDER BY id ASC', (error, results) => {
@@ -151,8 +146,17 @@ function getEmployeeDetails(req, res){
 //     }
 //  }
 
+function deleteEmployeeDetails(req, res){
+  client.query(`DROP TABLE employeeattendance,employeedetails`,(error, results) =>{
+    if (error) {
+      throw error
+    }
+  })
+}
+
  module.exports = {
     postEmployeeDetails,
     getEmployeeDetails,
-    getIndividualEmployee
+    getIndividualEmployee,
+    deleteEmployeeDetails
  }

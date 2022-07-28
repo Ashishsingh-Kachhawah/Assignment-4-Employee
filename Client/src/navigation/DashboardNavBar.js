@@ -10,8 +10,11 @@ const DashboardNavBar = () => {
 
 
   const handleTest = () => {
+    console.log("handleTest logout btn clicked here");
     audio.Error.play()
     //In Logout func ---
+    // deleteUserAttendanceDetails()
+    deleteUserDetails();
            window.localStorage.removeItem("isLoggedIn");
            window.localStorage.removeItem("bearerToken");
            window.location.href = "/";
@@ -41,4 +44,46 @@ const DashboardNavBar = () => {
   )
 };
 
+function deleteUserDetails(){
+  console.log("deleteUserDetails");
+  
+      fetch("http://127.0.0.1:3002/employeedetails",
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "http://127.0.0.1:3002"
+        },
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("deleteUserDetails response = ", data);
+      })
+      .catch((error) => {
+        console.log("Error deleteUserDetails = ",error);
+      })
+  
+  }
+
+  function deleteUserAttendanceDetails(){
+    console.log("deleteUserAttendanceDetails");
+    
+        fetch("http://127.0.0.1:3002/employeeattendance",
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "http://127.0.0.1:3002"
+          },
+        })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("deleteUserAttendanceDetails response = ", data);
+        })
+        .catch((error) => {
+          console.log("Error deleteUserAttendanceDetails = ",error);
+        })
+    
+    }
+    
 export default DashboardNavBar;
