@@ -16,7 +16,7 @@ import '../cssComponents/Dashboard.css'
 // ]
 // // define global variable to store polyline
 // var polyline = null;
-
+var employeelocationArray = [];
 export class GoogleMap extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +24,32 @@ export class GoogleMap extends Component {
   
   }
 
+ getEmployeeLocation() {
+  console.log("getEmployeeLocation");
+  fetch("http://127.0.0.1:3002/employeelocation", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "http://127.0.0.1:3002",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("response data getemployeeLocation = ", data);
+      employeelocationArray = data;
+      // window.localStorage.setItem("employeeDetails", data);
+      console.log(
+        "response data getemployeeLocation => ",
+        employeelocationArray
+      );
+    })
+    .catch((error) => {
+      console.log("Error GoogleMap.js getemployeeLocation= ", error);
+    });
+}
+
   componentDidMount() {
+    this.getEmployeeLocation();
     navigator.geolocation.getCurrentPosition(function (position) {
       console.log("Live location  " + position.coords.latitude + " & " + position.coords.longitude)
     });
@@ -111,7 +136,14 @@ export class GoogleMap extends Component {
             >
 
               {/* CREATE MULTIPLE MARKER ON THE MAP */}
-              {employeeList.map(marker => {
+              {employeelocationArray.map(marker => {
+                var latitude = marker.location[0].latitude;
+                var longitude = marker.location[0].longitude;
+                console.log(":Location   "+ latitude);
+                console.log(":Location  " + longitude);
+                console.log("id emp   "+ marker.employee_id);
+                console.log("Location emp name   "+ marker.employee_name);
+                // console.log("icon  "+ marker.icon  );
                 return (
                   //   <CurrentLocation
                   //   centerAroundCurrentLocation
@@ -119,16 +151,17 @@ export class GoogleMap extends Component {
 
                   // >
                   <Marker
-                    key={marker.employeeId}
+                    key={marker.employee_id}
                     onClick={this.onMarkerClick}
-                    position={{ lat: marker.lat, lng: marker.lng }}
-                    name={marker.employeeName}
+                    position={{
+                      lat: latitude,
+                      lng: longitude,
+                    }}
+                    name={marker.employee_name}
                     icon={marker.icon}
-                  >
-
-                  </Marker>
+                  ></Marker>
                   /* </CurrentLocation> */
-                )
+                );
               })}
 
               <InfoWindow

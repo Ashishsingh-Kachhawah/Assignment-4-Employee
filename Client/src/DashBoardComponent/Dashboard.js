@@ -92,14 +92,14 @@ const [userIsAdmin , setUserIsAdmin] = useState(false);
     }
       console.log("Team Members are  === ", props);
       // console.log("Team Members are  === ",);
-      var route = [
-        { lat: 21.161639, lng: 79.659862 },
-        { lat: 21.173117, lng: 79.658434 },
-        { lat: 21.188337, lng: 79.661873 },
-        { lat: 21.204019, lng: 79.67098 },
-        { lat: 21.221012, lng: 79.65773 },
-        { lat: 21.229919, lng: 79.64817 },
-      ];
+      // var route = [
+      //   { lat: 21.161639, lng: 79.659862 },
+      //   { lat: 21.173117, lng: 79.658434 },
+      //   { lat: 21.188337, lng: 79.661873 },
+      //   { lat: 21.204019, lng: 79.67098 },
+      //   { lat: 21.221012, lng: 79.65773 },
+      //   { lat: 21.229919, lng: 79.64817 },
+      // ];
       // window.location.reload();
       const [IsAttendance, setIsAttendance] = useState(true);
     return(
@@ -149,9 +149,8 @@ const [userIsAdmin , setUserIsAdmin] = useState(false);
           {IsAttendance && <Attendance userIsAdmin={userIsAdmin}/>}
           {!IsAttendance && (
             <GoogleMap
-              center={{ lat: 21.161639, lng: 79.659862 }}
+              center={{ lat: 21.139624, lng: 79.131073 }}
               zoom={14}
-              data={route}
               userIsAdmin={userIsAdmin}
             />
           )}
