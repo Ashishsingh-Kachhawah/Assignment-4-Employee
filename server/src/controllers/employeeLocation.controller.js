@@ -4,26 +4,47 @@ const employeeLocationModel = require("../models/employeeLiveLocation.model")
 
 const { MongoClient } = require('mongodb');
 //Create a database named "mydb":
-// var url = "mongodb://localhost:27017/Mongodb";
+var url = "mongodb://localhost:27017/Mongodb";
 
-// MongoClient.connect("mongodb://localhost:27017/Mongodb", function(err, db) {
-//   if (err) throw console.log(err);
-//   console.log("Database created!");
-//   db.close();
-// });
-// var dbo = db.db("Mongodb");
-console.log("@@@@@@@@@@@@@@@");
-var url = "mongodb://localhost:27017/";
+MongoClient.connect("mongodb://localhost:27017/Mongodb", function (err, db) {
+  if (err) throw console.log(err);
+  console.log("Database created!");
+  //   db.close();
+});
+
+  console.log("EmployeeLocation Call");
+
+MongoClient.connect(url, function(err, db) {
+    if (err) throw console.log(err);
+    var dbo = db.db("Mongodb");
+    //Create a collection name "customers":
+    dbo.createCollection("UserLocations", function(error, res) {
+      if (!error) {
+        console.log("employeelocationController:", res.rows);
+      } else {
+        console.log(error.message);
+      }
+      db.close();
+    });
+  });
+// var DatabaseExists = MongoClient.showdatabase().ToList().Contains("Mongodb");
+// if (DatabaseExists == false) {
+//   Console.WriteLine("Create Database");
+//   // code to create the database here...
+// } else {
+//   Console.WriteLine("Database Already Exists!!");
+// }
 // MongoClient.connect(url, function(err, db) {
 //     if (err) throw console.log(err);
-//     var dbo = db.db("Mongodb");
-//     //Create a collection name "customers":
-//     dbo.createCollection("UserLocations", function(err, res) {
-//       if (err) throw err;
-//       console.log("Collection created!");
-//       db.close();
-//     });
-//   });
+    
+// var collectionExists = db.listCollections.toList().Contains("UserLocations");
+// if (collectionExists == false) {
+//   Console.log("Create Collection");
+//   // code to create the collection here...
+// } else {
+//   Console.log("Collection Already Exists!!");
+// }
+// });
 // mongoimport --db Mongodb --collection UserLocations --type=csv --
 // headerline --file=server/src/models/UserLocations.csv
 
