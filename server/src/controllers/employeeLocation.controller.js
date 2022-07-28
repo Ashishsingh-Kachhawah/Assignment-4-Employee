@@ -24,14 +24,17 @@ var url = "mongodb://localhost:27017/";
 //       db.close();
 //     });
 //   });
+// mongoimport --db Mongodb --collection UserLocations --type=csv --
+// headerline --file=server/src/models/UserLocations.csv
+
 
 function postEmployeeLocation(request, response) {
-    const { employeeid, location } = request.body;
+    const { employee_name, employee_id, location, icon } = request.body;
     MongoClient.connect(url, function (err, db) {
 
         if (err) throw console.log(err);
         var dbo = db.db("Mongodb");
-        var userobj = { employeeid, location }
+        var userobj = { employee_name, employee_id, location, icon };
         dbo.collection("UserLocations").insertOne(userobj, function (err, res) {
             if (err) {
                 console.log("PostEmployeeLocation error ", err)
@@ -67,9 +70,9 @@ function getIndividualEmployeeLocation(request, response) {
     MongoClient.connect(url, function (err, db) {
         if (err) throw console.log(err);
         var dbo = db.db("Mongodb");
-        const id = parseInt(request.params.employeeid)
+        const id = parseInt(request.params.employee_id);
         console.log("EmployeeId=======", id);
-        var query = { employeeid: id };
+        var query = { employee_id: id };
         dbo.collection("UserLocations").find(query).toArray(function (error, result) {
             if (error) throw error;
             if (result.length > 0) {
