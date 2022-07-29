@@ -149,7 +149,7 @@ const [userIsAdmin , setUserIsAdmin] = useState(false);
           {IsAttendance && <Attendance userIsAdmin={userIsAdmin}/>}
           {!IsAttendance && (
             <GoogleMap
-              center={{ lat: 21.139624, lng: 79.131073 }}
+              center={{ lat: 21.126109, lng: 79.1146691 }}
               zoom={14}
               userIsAdmin={userIsAdmin}
             />

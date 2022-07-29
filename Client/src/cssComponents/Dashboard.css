@@ -3,7 +3,8 @@
     height : 100%;
     position: absolute;
     width : 100%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+       /* visibility: hidden; */
     
 }
 body {
@@ -11,7 +12,7 @@ body {
   }
   
   .DashboardNavBar {
-    display: flex;
+    /* display: flex; */
     justify-content: space-around;
     padding: 20px;
     background: black;
@@ -101,14 +102,19 @@ body {
     margin-left: 500px;
     font-weight: bold;
   }
+  
   .datepicker{
-    flex-wrap:nowrap;
-    justify-content: baseline;
-    margin-left: 20px;
-    font-weight: bold;
+    /* flex-wrap:nowrap; */
+    /* justify-content: baseline; */
+    /* margin-left: 20px; */
+    /* font-weight: bold; */
+    display: flex;
+    /* visibility: hidden; */
+    flex-direction: row;
     width: 400px;
     height: 30px;
     background-color: transparent;
+    align-content: flex-start;
     /* box-shadow: lightblue; */
     /* border-color: transparent;
     border: none; */

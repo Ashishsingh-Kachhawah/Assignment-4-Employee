@@ -1,0 +1,107 @@
+"id","employeeid","first_name","last_name","full_name","email","mobile","access_right","val"
+1,431,"Brandon","Bennett","Brandon Bennett","bbennett@powercooling.com",9588432537,"PC Employee",NULL
+2,1,"Data not Found","Data not Found","Data not Found","Data not Found",9588432537,"Admin With Company Settings",NULL
+3,2789,"Bhavesh","Pansheriya","Bhavesh Pansheriya","bhavesh@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+4,18,"Ryan","Gottfried","Ryan Gottfried","ryan@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+5,115,"Kristina","Krueger","Kristina Krueger","kkrueger@powercooling.com",9588432537,"Admin With Company Settings",NULL
+6,49776,"Success","Uc","Success Uc","success@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+7,45698,"Brett","Harrington","Brett Harrington","brett@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+8,996,"Miles","M","Miles M","miles@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+9,47053,"Ajeetkumar","D","Ajeetkumar D","ajeetkumar.dubey@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+10,2175,"Jordan","F","Jordan F","jordan@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+11,2156,"Alec","Schweitzer","Alec Schweitzer","shwhy@utilizecore.com",9588432537,"Admin",NULL
+12,46913,"Ashwini","Kesare","Ashwini Kesare","ashwini+1@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+13,46163,"Yogesh","J","Yogesh J","yogesh.jhansiwale@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+14,45986,"Charlie","Korabek","Charlie Korabek","charlie@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+15,46161,"Yash","Mahajan","Yash Mahajan","yash.mahajan@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+16,46199,"Sonali","Bagwe","Sonali Bagwe","sonali.bagwe@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+17,45286,"Amit","Jha","Amit Jha","amit@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+18,46459,"Almas","Shaikh","Almas Shaikh","almas@utilizecore.com",9588432537,"Admin",NULL
+19,45491,"deeksha","Yadav","Deeksha Yadav","deeksha@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+20,658,"Ian","Khan","Ian Khan","ian@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+21,75,"Shareema","Rosales","Shareema Rosales","shareema@powercooling.com",9588432537,"Admin With Company Settings",NULL
+22,13,"Walter","Briceno","Walter Briceno","chuchobd@gmail.com",9588432537,"Admin With Company Settings",NULL
+23,63,"Abdul","Basit","Abdul Basit","abdul@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+24,74,"Luiza","bagdasarian","Luiza Bagdasarian","luiza@powercooling.com",9588432537,"Admin With Company Settings",NULL
+25,96,"Antonino","Davi","Antonino Davi","adavi@powercooling.com",9588432537,"Admin With Company Settings",NULL
+26,87,"Serge","Lubensky","Serge Lubensky","serge@retoolventures.com",9588432537,"Admin With Company Settings",NULL
+27,163,"Utilize","Core","Utilize Core","billing@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+28,2587,"Pavan","Shelar","Pavan Shelar","pavan@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+29,86,"Jaywant","Dhomse","Jaywant Dhomse","jaydhomse@gmail.com",9588432537,"Admin With Company Settings",NULL
+30,369,"Michelle","Nardone","Michelle Nardone","mnardone@powercooling.com",9588432537,"Admin With Company Settings",NULL
+31,566,"Jay","Dhomse","Jay Dhomse","jay+53@mycoretalent.com",9588432537,"Admin With Company Settings",NULL
+32,644,"Jay","Dhomse","Jay Dhomse","jaydhomse9@gmail.com",9588432537,"Admin With Company Settings",NULL
+33,44963,"Customer","Success","Customer Success","johnny+1000000@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+34,50,"Ray","S","Ray S","ray@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+35,4,"Isaac","Picado","Isaac Picado","isaac@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+36,64,"jaywant","Dhomse","Jaywant Dhomse","jay@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+37,112,"Lauren","Larsen","Lauren Larsen","llarsen@powercooling.com",9588432537,"Admin With Company Settings",NULL
+38,114,"Paul","Ingartiola","Paul Ingartiola","paul@wiredonsite.com",9588432537,"Admin With Company Settings",NULL
+39,118,"Johnny","Zhu","Johnny Zhu","hantao@hgdtcapital.com",9588432537,"Admin With Company Settings",NULL
+40,97,"Jack","Davi","Jack Davi","jdavi@powercooling.com",9588432537,"Admin With Company Settings",NULL
+41,68,"Ramesh","Srinivasan","Ramesh Srinivasan","ramesh@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+42,326,"Jason","Kwait","Jason Kwait","jason@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+43,356,"Yogesh","Lolusare","Yogesh Lolusare","yogesh@mycoretalent.com",9588432537,"Admin With Company Settings",NULL
+44,433,"Matt","Craig","Matt Craig","matt@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+45,436,"jon","doe","Jon Doe","test123@gmail.com",9588432537,"Admin With Company Settings",NULL
+46,661,"Miles","Murdunge","Miles Murdunge","miles@mycoretalent.com",9588432537,"Admin With Company Settings",NULL
+47,2173,"Stan","Kanda","Stan Kanda","stan@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+48,2006,"Jaydeep","Kesare","Jaydeep Kesare","jaydeep@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+49,1805,"Yogesh","Bankar","Yogesh Bankar","yogeshbankar@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+50,101,"Rookmin","gheerow","Rookmin Gheerow","rgheerow@powercooling.com",9588432537,"Admin With Company Settings",NULL
+51,2150,"Alex","A","Alex A","alex@utilizecore.com",9588432537,"PC Employee",NULL
+52,1710,"Zach","Magray","Zach Magray","zach@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+53,2,"Walter","Briceno","Walter Briceno","walter@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+54,2111,"Kadira","Maruf","Kadira Maruf","kadira@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+55,2171,"Vishal","Sb","Vishal Sb","vishal@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+56,2162,"Ken","Malaji","Ken Malaji","ken@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+57,44872,"Bankim","Patel","Bankim Patel","bankim@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+58,2317,"Venky","Srinivasan","Venky Srinivasan","venky@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+59,46457,"harish","patil","Harish Patil","harishpatil@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+60,1866,"Amol","Joshi","Amol Joshi","amol@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+61,167,"Rahul","Kundu","Rahul Kundu","rahulkundu@utilizecore.com",9588432537,"Admin",NULL
+62,694,"Chris","Turner","Chris Turner","cturner@powercooling.com",9588432537,"PC Employee",NULL
+63,78,"Ray","Hardyal","Ray Hardyal","rhardyal@powercooling.com",9588432537,"PC Employee",NULL
+64,46132,"Darin","Morrissey","Darin Morrissey","dmorrissey@powercooling.com",9588432537,"PC Employee",NULL
+65,125,"robert","harvey","Robert Harvey","bharvey@powercooling.com",9588432537,"PC Employee",NULL
+66,474,"Jaywant","Dhomse","Jaywant Dhomse","jaydhomse+23@gmail.com",9588432537,"PC Employee",NULL
+67,2101,"Craig","Doman","Craig Doman","cdoman@powercooling.com",9588432537,"PC Employee",NULL
+68,73,"Robert","Poulton","Robert Poulton","rpoulton@powercooling.com",9588432537,"PC Employee",NULL
+69,45700,"Tatiana","Mena","Tatiana Mena","tatiana.mena@utilizecore.com",9588432537,"Admin",NULL
+70,46028,"Ava","Ohanesian","Ava Ohanesian","ava@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+71,46147,"Viplove","A","Viplove A","viplove@utilizecore.com",9588432537,"PC Employee",NULL
+72,45582,"Ankit","Patil","Ankit Patil","ankit@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+73,45605,"Ratan","S","Ratan S","ratan@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+74,30665,"Benny","Jones","Benny Jones","benny@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+75,76,"Paul","Mcclellan","Paul Mcclellan","pmcclellan@powercooling.com",9588432537,"PC Employee",NULL
+76,49280,"Kiran","Mahale","Kiran Mahale","kiran.mahale@utilizeore.com",9588432537,"Admin With Company Settings",NULL
+77,48230,"Kiran","Mahale","Kiran Mahale","kiran.mahale@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+78,50055,"Amit","J","Amit J",NULL,9588432537,"Admin With Company Settings",NULL
+79,2227,"Harmeet","Panesar","Harmeet Panesar","harmeet@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+80,50185,"Tomasz","Krol","Tomasz Krol","tkrol@powercooling.com",9588432537,"Field Force",NULL
+81,50186,"Craig","Lewis","Craig Lewis","clewis@powercooling.com",9588432537,"Field Force",NULL
+82,50187,"Steve","Mohabir","Steve Mohabir","smohabir@powercooling.com",9588432537,"Field Force",NULL
+83,50188,"Karim","Morrison","Karim Morrison","kmorrison@powecooling.com",9588432537,"Field Force",NULL
+84,50189,"Roger","Nunez","Roger Nunez","rnunez@powercooling.com",9588432537,"Field Force",NULL
+85,50190,"Wendi","Pena","Wendi Pena","wpena@powercooling.com",9588432537,"Field Force",NULL
+86,50184,"Carlos","Guerrero","Carlos Guerrero","ctguerrero@powercooling.com",9588432537,"Field Force",NULL
+87,50191,"Manuel","Rodriguez","Manuel Rodriguez","mrodriguez@powercooling.com",9588432537,"Field Force",NULL
+88,49378,"D","Y","D Y","deeksha+ksdfhsd@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+89,49379,"D","Y","D Y",NULL,9588432537,"Admin With Company Settings",NULL
+90,49382,"N","C","N C",NULL,9588432537,"Admin With Company Settings",NULL
+91,50368,"Absorption","Dept","Absorption Dept","abs@powercooling.com",9588432537,"PC Employee",NULL
+92,50371,"Engineering","Dept","Engineering Dept","engineering@powercooling.com",9588432537,"PC Employee",NULL
+93,50367,"Centrifugal","Dept","Centrifugal Dept","centrifugal@powercooling",9588432537,"PC Employee",NULL
+94,50370,"Reliance","Dept","Reliance Dept","reliance@powercooling.com",9588432537,"PC Employee",NULL
+95,50366,"Recip & ABS","Dept","Recip & Abs Dept","recip@powercooling",9588432537,"PC Employee",NULL
+96,50369,"Recip","Dept","Recip Dept","recip@powercooling.com",9588432537,"PC Employee",NULL
+97,513,"Charles","Heerbrandt","Charles Heerbrandt","cheerbrandt@powercooling.com",9588432537,"PC Employee",NULL
+98,50373,"ABS & Centrifugal","Dept","Abs & Centrifugal Dept","dumb@powercooling.com",9588432537,"PC Employee",NULL
+99,49549,"D","Y","D Y","deeksha+lp232mn@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+100,50600,"Craig","Lewis","Craig Lewis","craigricky@gmail.com",9588432537,"Admin",NULL
+101,46458,"Chaitanya","Waghule","Chaitanya Waghule","chaitanya@utilizecore.com",9588432537,"Admin",NULL
+102,47766,"Nikhil","Chaudhary","Nikhil Chaudhary","nikhil@utilizecore.com",9588432537,"Admin",NULL
+103,50890,"Zaid","Shaikh","Zaid Shaikh","zaid.shaikh@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+104,50898,"Harry","Markel","Harry Markel","harmeet+65@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+105,49282,"Chad","P","Chad P","chandrakant@utilizecore.com",9588432537,"Admin With Company Settings",NULL
+106,51217,"Zaid","Shaikh","Zaid Shaikh","zaid.shaikh+new@utilizecore.com",9588432537,"Admin (Company Settings)",NULL
