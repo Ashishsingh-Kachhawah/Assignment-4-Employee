@@ -18,7 +18,7 @@ client.query(`CREATE  TABLE IF NOT EXISTS employeedetails(id SERIAL PRIMARY KEY,
     first_name VARCHAR(250) NOT NULL,
     last_name VARCHAR(250) NOT NULL,
     full_name VARCHAR(250) NOT NULL,
-    email VARCHAR(250) NOT NULL,
+    email VARCHAR(250),
     mobile BIGINT NOT NULL CHECK (mobile >= 0),
     access_right VARCHAR(250) NOT NULL,
     val text,
@@ -53,7 +53,7 @@ client.query(
 );
 client.query(
   `COPY employeeattendance(attendance_id,id, date,login_time,logout_time)
-FROM '/Users/darios/Assignment-4-Employee/server/src/models/employeeattendance.csv'
+FROM '/Users/apple/Documents/Assignment4Uc/server/src/models/Attendance.csv'
 
 DELIMITER ','
 CSV HEADER`,

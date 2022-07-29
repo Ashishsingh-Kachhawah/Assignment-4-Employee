@@ -2,7 +2,8 @@
 import { call, put, takeLatest } from "redux-saga/effects"
 import store from "../store/store";
 
-const loginUrl = "/oauth/token"
+// const loginUrl = "/oauth/token"
+const loginUrl = "/api/v2/users/session";
 
 function LoginApi (props)  {
   const InputIsNumber = store.getState().reducer.InputIsNumber;
@@ -19,13 +20,19 @@ function LoginApi (props)  {
 
       // CREATE BODY
       let data = {
-        "grant_type": "password",
-        "scope": "admin",
-        "client_id": store.getState().reducer.client_id,
-        "client_secret": store.getState().reducer.client_secret,
-        "username": userName,
-        "password": store.getState().reducer.password
+        user: {
+          email: userName,
+          password: store.getState().reducer.password,
+        },
       };
+      // let data = {
+      //   "grant_type": "password",
+      //   "scope": "admin",
+      //   "client_id": store.getState().reducer.client_id,
+      //   "client_secret": store.getState().reducer.client_secret,
+      //   "username": userName,
+      //   "password": store.getState().reducer.password
+      // };
    
        return fetch(loginUrl, {
          method: "POST",

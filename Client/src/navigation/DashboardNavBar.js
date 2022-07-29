@@ -14,7 +14,7 @@ const DashboardNavBar = () => {
     audio.Error.play()
     //In Logout func ---
     // deleteUserAttendanceDetails()
-    deleteUserDetails();
+    // deleteUserDetails();
            window.localStorage.removeItem("isLoggedIn");
            window.localStorage.removeItem("bearerToken");
            window.location.href = "/";
