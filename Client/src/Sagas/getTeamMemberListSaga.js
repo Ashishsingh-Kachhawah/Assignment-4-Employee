@@ -10,7 +10,7 @@ import {
 async function getTeamMemberAPI(props) {
   // var yourToken = store.getState().reducer.tokenReceived;
   const yourToken = window.localStorage.getItem("bearerToken")
-    let url ="/api/v2/company_users?include=user, user/image, role&page=1&per_page=50";
+    let url ="/api/v2/company_users?include=user, user/image, role&page=1&per_page=100";
       console.log("URL <><><></><></><>", url);
       console.log( `Bearer ${yourToken}`);
     try {
