@@ -65,11 +65,11 @@ client.connect();
 
 
 function postEmployeeAttendance(req, res){
-   const { employeeid, date, login_time, logout_time } = req.body;
+   const {id, employeeid, date, login_time, logout_time } = req.body;
  console.log("postEmployeeAttendance req.body", req.body);
    client.query(
-     "INSERT INTO employeeattendance(employeeid, date, login_time, logout_time) VALUES ($1, $2, $3, $4)",
-     [employeeid, date, login_time, logout_time],
+     "INSERT INTO employeeattendance(id,employeeid, date, login_time, logout_time) VALUES ($1, $2, $3, $4, $5)",
+     [id,employeeid, date, login_time, logout_time],
      (error, results) => {
        if (error) {
          console.log("postEmployeeAttendance ===> ", error);
@@ -130,9 +130,9 @@ function postEmployeeAttendance(req, res){
 //  }
 
 function getIndividualEmployeeAttendance(req, res){
-   const id = parseInt(req.params.id)
+   const id = parseInt(req.params.employeeid)
 
-   client.query('SELECT * FROM employeeattendance WHERE id = $1', [id], (error, results) => {
+   client.query('SELECT * FROM employeeattendance WHERE employeeid = $1', [id], (error, results) => {
      if (error) {
        throw error
      }

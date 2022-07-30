@@ -33,14 +33,14 @@ client.query(`CREATE  TABLE IF NOT EXISTS employeedetails(id SERIAL PRIMARY KEY,
 })
 client.query(
   `CREATE TABLE employeeattendance(
-   attendance_id INT GENERATED ALWAYS AS IDENTITY,
+   attendance_id SERIAL PRIMARY KEY,
+   id INT,
    employeeid INT,
    date DATE NOT NULL,
    login_time TIME NOT NULL,
    logout_time TIME NOT NULL,
-   PRIMARY KEY(attendance_id),
    CONSTRAINT fk_employee
-      FOREIGN KEY(employeeid) 
+    FOREIGN KEY(id) 
 	  REFERENCES employeedetails(id)
 ) `,
   (error, res) => {
@@ -52,8 +52,8 @@ client.query(
   }
 );
 client.query(
-  `COPY employeeattendance(attendance_id,employeeid, date,login_time,logout_time)
-FROM '/Users/apple/Documents/Assignment4Uc/server/src/models/Attendance.csv'
+  `COPY employeeattendance(attendance_id,id,employeeid, date,login_time,logout_time)
+FROM '/Users/darios/Assignment-4-Employee/server/src/models/employeeattendanceid.csv'
 
 DELIMITER ','
 CSV HEADER`,

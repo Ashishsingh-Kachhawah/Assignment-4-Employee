@@ -11,7 +11,7 @@ employeeAttendanceRouter.use((req, res, next) => {
 
 employeeAttendanceRouter.post("/", employeeAttendanceController.postEmployeeAttendance);
 employeeAttendanceRouter.get("/", employeeAttendanceController.getEmployeeAttendance );
-employeeAttendanceRouter.get("/:id", employeeAttendanceController.getIndividualEmployeeAttendance);
+employeeAttendanceRouter.get("/:employeeid", employeeAttendanceController.getIndividualEmployeeAttendance);
 employeeAttendanceRouter.patch("/:attendance_id", employeeAttendanceController.patchEmployeeAttendance)
 
 module.exports = employeeAttendanceRouter;

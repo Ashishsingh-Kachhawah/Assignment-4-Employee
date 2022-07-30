@@ -13,7 +13,7 @@ employeeLocationRouter.use((req, res, next) => {
 
 employeeLocationRouter.post("/", employeeLocationController.postEmployeeLocation);
 employeeLocationRouter.get("/", employeeLocationController.getEmployeeLocation );
-employeeLocationRouter.get("/:employeeid", employeeLocationController.getIndividualEmployeeLocation);
+employeeLocationRouter.get("/:employee_id", employeeLocationController.getIndividualEmployeeLocation);
 // employeeLocationRouter.patch("/:employeeid", employeeLocationController.patchEmployeeLocation)
 
 module.exports = employeeLocationRouter;
