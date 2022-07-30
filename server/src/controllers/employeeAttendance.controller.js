@@ -65,28 +65,35 @@ client.connect();
 
 
 function postEmployeeAttendance(req, res){
-   const {id, date, login_time, logout_time} = req.body
+   const {id, employeeid, date, login_time, logout_time } = req.body;
  console.log("postEmployeeAttendance req.body", req.body);
-   client.query('INSERT INTO employeeattendance(id, date, login_time, logout_time) VALUES ($1, $2, $3, $4)', [id, date, login_time, logout_time], (error, results) => {
-     if (error) {
-      console.log("postEmployeeAttendance ===> ",error);
-       throw error
+   client.query(
+     "INSERT INTO employeeattendance(id,employeeid, date, login_time, logout_time) VALUES ($1, $2, $3, $4, $5)",
+     [id,employeeid, date, login_time, logout_time],
+     (error, results) => {
+       if (error) {
+         console.log("postEmployeeAttendance ===> ", error);
+         throw error;
+       }
+       res.send(`EmployeeAttendance added with ID: ${results.attendance_id}`);
      }
-     res.send(`EmployeeAttendance added with ID: ${results.attendance_id}`)
-   })
+   );
 }
 
  function getEmployeeAttendance(req, res){
    //  res.send(employeeAttendanceModel);
 
-   client.query('SELECT * FROM employeeattendance ORDER BY id ASC', (error, results) => {
-      if (error) {
-        throw error
-      }
-      // req.status(200).json(results.rows)
-      console.log("get employee attendance : ",results.rows);
-      res.send(results.rows);
-    })
+   client.query(
+     "SELECT * FROM employeeattendance ORDER BY employeeid ASC",
+     (error, results) => {
+       if (error) {
+         throw error;
+       }
+       // req.status(200).json(results.rows)
+       console.log("get employee attendance : ", results.rows);
+       res.send(results.rows);
+     }
+   );
 
  }
 
@@ -123,9 +130,9 @@ function postEmployeeAttendance(req, res){
 //  }
 
 function getIndividualEmployeeAttendance(req, res){
-   const id = parseInt(req.params.id)
+   const id = parseInt(req.params.employeeid)
 
-   client.query('SELECT * FROM employeeattendance WHERE id = $1', [id], (error, results) => {
+   client.query('SELECT * FROM employeeattendance WHERE employeeid = $1', [id], (error, results) => {
      if (error) {
        throw error
      }

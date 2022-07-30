@@ -9,6 +9,8 @@ function LoginApi (props)  {
   const InputIsNumber = store.getState().reducer.InputIsNumber;
   const CountryCode = store.getState().reducer.countryCode;
   const email = store.getState().reducer.email;
+  console.log("~~~~~~~~~~~~~~~~",email)
+
 
   let userName = email;
   if(InputIsNumber){
@@ -46,7 +48,9 @@ function LoginApi (props)  {
           return response.json();
         })
          .then((data) => {
+          // console.log("Response Data is"+ data.id);
            alert("Login successfully, access_token = "+data.access_token);
+            window.localStorage.setItem("UserName", data.user.full_name);
            store.dispatch({type: "TOKEN_RECEIVED" , tokenReceived : data.access_token});
            // TO KEEP THE USER LOGIN TILL HE LOGS  OUT
            window.localStorage.setItem("isLoggedIn", true);

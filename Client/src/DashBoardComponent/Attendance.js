@@ -7,6 +7,7 @@ import '../cssComponents/Dashboard.css'
 // import * as audio from './Sounds'
 
 var employeeAttendanceArray = [];
+// FETCH DATA OF ALL USER FOR ADMIN 
 const getEmployeeattendance = () => {
   console.log("employeeattendance");
   fetch("http://127.0.0.1:3002/employeeattendance",
@@ -29,10 +30,33 @@ const getEmployeeattendance = () => {
       })
 }
 
+// FETCH DATA FOR NORMAL USER INDIVIDUAL DATA
+const getIndividualEmployeeattendance = () => {
+  console.log("employeegetIndividualEmployeeattendanceattendance");
+  fetch("http://127.0.0.1:3002/employeeattendance/46913",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "http://127.0.0.1:3002"
+        },
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("response data getIndividualEmployeeattendance = ", data);
+        employeeAttendanceArray = data;
+        // window.localStorage.setItem("employeeDetails", data);
+        console.log("response data getIndividualEmployeeattendance => ",employeeAttendanceArray);
+      })
+      .catch((error) => {
+        console.log("Error sidebar.js getIndividualEmployeeattendance= ",error);
+      })
+}
+
 export default function Attendance(props) {
   const [employeeIndex, setemployeeIndex] = useState();
   console.log("index set sideBar ====", employeeIndex);
-  getEmployeeattendance();
+  (props.userIsAdmin == true) ? getEmployeeattendance() : getIndividualEmployeeattendance()  ;
   const [localemployeelist, setlocalemployeelist] = useState(employeeAttendanceArray);
   console.log(employeeList);
   const [isAdmin, setisAdmin] = useState(true);
@@ -58,7 +82,7 @@ export default function Attendance(props) {
     const rows = localemployeelist.map((row, index) => {
       return (
         <tr key={index}>
-          <td>{row.id}</td>
+          <td>{row.employeeid}</td>
           <td>{row.login_time}</td>
           <td>{row.logout_time}</td>
         </tr>

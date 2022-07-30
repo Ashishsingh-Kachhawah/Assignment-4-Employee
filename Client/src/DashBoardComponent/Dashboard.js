@@ -9,11 +9,16 @@ import DateSelector from './DateSelector';
 import * as audio from "./Sounds";
 import Attendance from './Attendance';
 import GoogleMap from './GoogleMap';
+import store from '../store/store';
+// import { get } from 'immer/dist/internal';
 
 const Dashboard = (props) => {
  
 const reloadCount = Number(sessionStorage.getItem('reloadCount')) || 0;
+// const email = store.getState().reducer.email;
 
+var Username = window.localStorage.getItem("UserName");
+console.log("in Dashboard the Name is", Username);
   useEffect(() => {
     if(reloadCount < 2) {
       sessionStorage.setItem('reloadCount', String(reloadCount + 1));
@@ -102,62 +107,64 @@ const [userIsAdmin , setUserIsAdmin] = useState(false);
       // ];
       // window.location.reload();
       const [IsAttendance, setIsAttendance] = useState(true);
-    return(
+    return (
       <React.Fragment>
-        <div className='stylDashboardView'>
-            {/* <h1>In a Dashboard.........................WELCOME...............</h1> */}
-            <div hidden={userIsAdmin ? false : true} >I AM THE ADMIN</div>
-       
-        <header className='header' >
-          {/* <DashboardNavBar /> */}
-          
-        </header>  
-        <div className="dashboardmainContainer">
-        <div className="AttendanceDiv">
-          <button
-            type="button"
-            onClick={() => {
-              {
-                audio.SelectClick.play();
-              }
-              setIsAttendance(true);
-            }}
-            id={IsAttendance == true ? "trueattendancebtn" : "attendancebtn"}
-            class="btn btn-primary btn-lg btn-block"
-          >
-            ATTENDANCE
-          </button>
+        <div className="stylDashboardView">
+          {/* <h1>In a Dashboard.........................WELCOME...............</h1> */}
+          <div className="AdminContainer" >
+            <div className='Admindiv' hidden={userIsAdmin ? false : true}>I AM THE ADMIN </div>
+            <div className="Usernamediv">Welcome Back {Username} </div>
+          </div>
+
+          <header className="header">{/* <DashboardNavBar /> */}</header>
+          <div className="dashboardmainContainer">
+            <div className="AttendanceDiv">
+              <button
+                type="button"
+                onClick={() => {
+                  {
+                    audio.SelectClick.play();
+                  }
+                  setIsAttendance(true);
+                }}
+                id={
+                  IsAttendance == true ? "trueattendancebtn" : "attendancebtn"
+                }
+                class="btn btn-primary btn-lg btn-block"
+              >
+                ATTENDANCE
+              </button>
+            </div>
+            <div className="LocationDiv">
+              <button
+                type="button"
+                onClick={() => {
+                  {
+                    audio.SelectClick.play();
+                  }
+                  setIsAttendance(false);
+                }}
+                id={IsAttendance == false ? "truelocationbtn" : "locationbtn"}
+                class="btn btn-primary btn-lg btn-block"
+              >
+                LOCATION
+              </button>
+            </div>
+            <DateSelector />
+            <div>
+              <div className="UserList">{/* <SideDrawer /> */}</div>
+              {IsAttendance && <Attendance userIsAdmin={userIsAdmin} />}
+              {!IsAttendance && (
+                <GoogleMap
+                  center={{ lat: 21.126109, lng: 79.1146691 }}
+                  zoom={14}
+                  userIsAdmin={userIsAdmin}
+                />
+              )}
+            </div>
+          </div>
         </div>
-        <div className="LocationDiv">
-          <button
-            type="button"
-            onClick={() => {
-              {
-                audio.SelectClick.play();
-              }
-              setIsAttendance(false);
-            }}
-            id={IsAttendance == false ? "truelocationbtn" : "locationbtn"}
-            class="btn btn-primary btn-lg btn-block"
-          >
-            LOCATION
-          </button>
-        </div>
-        <DateSelector />
-        <div>
-          <div className="UserList">{/* <SideDrawer /> */}</div>
-          {IsAttendance && <Attendance userIsAdmin={userIsAdmin}/>}
-          {!IsAttendance && (
-            <GoogleMap
-              center={{ lat: 21.126109, lng: 79.1146691 }}
-              zoom={14}
-              userIsAdmin={userIsAdmin}
-            />
-          )}
-        </div>
-      </div>
-      </div>
-       </React.Fragment>
+      </React.Fragment>
     );
 }
 
