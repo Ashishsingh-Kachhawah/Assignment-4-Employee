@@ -65,11 +65,11 @@ client.connect();
 
 
 function postEmployeeAttendance(req, res){
-   const { employeeid, date, login_time, logout_time } = req.body;
+   const { id,employeeid, date, login_time, logout_time } = req.body;
  console.log("postEmployeeAttendance req.body", req.body);
    client.query(
-     "INSERT INTO employeeattendance(employeeid, date, login_time, logout_time) VALUES ($1, $2, $3, $4)",
-     [employeeid, date, login_time, logout_time],
+     "INSERT INTO employeeattendance(id,employeeid, date, login_time, logout_time) VALUES ($1, $2, $3, $4,$5)",
+     [id,employeeid, date, login_time, logout_time],
      (error, results) => {
        if (error) {
          console.log("postEmployeeAttendance ===> ", error);
