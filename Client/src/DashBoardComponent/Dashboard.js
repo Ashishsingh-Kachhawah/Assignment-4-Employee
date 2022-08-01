@@ -4,12 +4,13 @@ import {useEffect , useState} from "react";
 import { getUserRoleWhileLogin } from "../store/root-reducer";
 import {useDispatch , connect} from 'react-redux';
 import { getTeamMemberListWhileLogin } from '../store/root-reducer';
-import DashboardNavBar from '../navigation/DashboardNavBar';
-import DateSelector from './DateSelector';
+// import DashboardNavBar from '../navigation/DashboardNavBar';
+// import DateSelector from './DateSelector';
 import * as audio from "./Sounds";
 import Attendance from './Attendance';
 import GoogleMap from './GoogleMap';
-import store from '../store/store';
+// import store from '../store/store';
+import CustomdateSelector from './CustomDateSelector';
 // import { get } from 'immer/dist/internal';
 
 const Dashboard = (props) => {
@@ -150,7 +151,8 @@ const [userIsAdmin , setUserIsAdmin] = useState(false);
                 LOCATION
               </button>
             </div>
-            <DateSelector />
+            {/* <DateSelector /> */}
+            <CustomdateSelector />
             <div>
               <div className="UserList">{/* <SideDrawer /> */}</div>
               {IsAttendance && <Attendance userIsAdmin={userIsAdmin} />}

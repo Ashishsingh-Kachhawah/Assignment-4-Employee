@@ -2,9 +2,10 @@ import React from "react";
 import { resources } from "../Utility/StringResource";
 
 const FooterView = () => {
+  const loggedIn = window.localStorage.getItem("isLoggedIn");
     return (
       <React.Fragment>
-        <div className="FooterView">
+        <div className="FooterView" hidden={loggedIn ? true : false}>
           <div className="subContainerOfFooter">
             <div className="footerimageContainer">
               <img src="../Images/utilizecoreLogo.png" alt="dummyPic" width={200} />
