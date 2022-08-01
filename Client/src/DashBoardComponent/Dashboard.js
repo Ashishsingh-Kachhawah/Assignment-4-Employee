@@ -113,8 +113,9 @@ const [userIsAdmin , setUserIsAdmin] = useState(false);
         <div className="stylDashboardView">
           {/* <h1>In a Dashboard.........................WELCOME...............</h1> */}
           <div className="AdminContainer" >
+             <div className="Usernamediv">Welcome Back {Username} </div>
             <div className='Admindiv' hidden={userIsAdmin ? false : true}>I AM THE ADMIN </div>
-            <div className="Usernamediv">Welcome Back {Username} </div>
+           
           </div>
 
           <header className="header">{/* <DashboardNavBar /> */}</header>
