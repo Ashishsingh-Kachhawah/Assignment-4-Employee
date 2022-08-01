@@ -87,7 +87,7 @@ class App extends Component {
       <BrowserRouter>
 
       <div className="App">
-
+      
       {loggedIn ? <DashboardNavBar /> : <Navigator environment={this.state.environment} handleChange={this.handleChange}/> }
       
       {/* <Navigator environment={this.state.environment} handleChange={this.handleChange}/> */}
