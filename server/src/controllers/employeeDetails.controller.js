@@ -52,20 +52,20 @@ client.query(
     }
   }
 );
-// client.query(
-//   `COPY employeeattendance(attendance_id,id,employeeid, date,login_time,logout_time)
-// FROM '/Users/apple/Documents/Assignment4Uc/server/src/models/Attendance.csv'
+client.query(
+  `COPY employeeattendance(attendance_id,id,employeeid, date,login_time,logout_time)
+FROM '/Users/apple/Documents/Assignment4Uc/server/src/models/Attendance.csv'
 
-// DELIMITER ','
-// CSV HEADER`,
-//   (error, res) => {
-//     if (!error) {
-//       console.log("employeeAttendancecsv:", res.rows);
-//     } else {
-//       console.log("employeeAttendancecsvError :", error.message);
-//     }
-//   }
-// );
+DELIMITER ','
+CSV HEADER`,
+  (error, res) => {
+    if (!error) {
+      console.log("employeeAttendancecsv:", res.rows);
+    } else {
+      console.log("employeeAttendancecsvError :", error.message);
+    }
+  }
+);
 client.end;
 
 // function postEmployeeDetails(req, res){
