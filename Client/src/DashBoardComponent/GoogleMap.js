@@ -26,7 +26,7 @@ export class GoogleMap extends Component {
 
  getEmployeeLocation() {
   console.log("getEmployeeLocation");
-  const url = (this.props.userIsAdmin == true) ? "http://127.0.0.1:3002/employeelocation" : "http://127.0.0.1:3002/employeelocation/employee_id" ;
+  const url = (this.props.userIsAdmin == true) ? "http://127.0.0.1:3002/employeelocation" : "http://127.0.0.1:3002/employeelocation/46913" ;
   console.log("url for employee location----> ",url);
   fetch(url, {
     method: "GET",

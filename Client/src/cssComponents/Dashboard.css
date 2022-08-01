@@ -213,11 +213,11 @@ body {
   .AdminContainer{
     display: flex;
     flex-direction: row;
-    
       background-color:lightslategray;
      height: 50px;
    /* text-align:center; */
    font-size: 20px;
+   width: 100%;
    font-weight: bold;
     font-style: oblique;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -225,13 +225,15 @@ body {
   .Admindiv{
     /* float: left; */
     padding: 10px;
-   padding-left:40px ;
+   /* padding-left:40px ; */
+   width: 55%;
     color: aliceblue;
   }
   .Usernamediv{
     /* float: right; */
+       width: 45%;
     padding: 10px;
-    padding-left: 1100px;
+    /* padding-left: 1100px; */
     color:ghostwhite;
   }
 
