@@ -13,4 +13,5 @@ employeeDetailsRouter.post("/", employeeDetailsController.postEmployeeDetails);
 employeeDetailsRouter.get("/", employeeDetailsController.getEmployeeDetails);
 employeeDetailsRouter.get("/:id", employeeDetailsController.getIndividualEmployee);
 employeeDetailsRouter.delete("/", employeeDetailsController.deleteEmployeeDetails);
+employeeDetailsRouter.post("/copy", employeeDetailsController.copyAttendancetable);
 module.exports = employeeDetailsRouter;

@@ -52,20 +52,20 @@ client.query(
     }
   }
 );
-client.query(
-  `COPY employeeattendance(attendance_id,id,employeeid, date,login_time,logout_time)
-FROM '/Users/apple/Documents/Assignment4Uc/server/src/models/Attendance.csv'
+// client.query(
+//   `COPY employeeattendance(attendance_id,id,employeeid, date,login_time,logout_time)
+// FROM '/Users/darios/Assignment-4-Employee/server/src/models/employeeattendanceid.csv'
 
-DELIMITER ','
-CSV HEADER`,
-  (error, res) => {
-    if (!error) {
-      console.log("employeeAttendancecsv:", res.rows);
-    } else {
-      console.log("employeeAttendancecsvError :", error.message);
-    }
-  }
-);
+// DELIMITER ','
+// CSV HEADER`,
+//   (error, res) => {
+//     if (!error) {
+//       console.log("employeeAttendancecsv:", res.rows);
+//     } else {
+//       console.log("employeeAttendancecsvError :", error.message);
+//     }
+//   }
+// );
 client.end;
 
 // function postEmployeeDetails(req, res){
@@ -106,11 +106,12 @@ function postEmployeeDetails(request, response) {
      console.log("result of post user details in postEmployeeDetails == ", results);
      response.status(200).send(`Employee added with ID: ${results.id}`)
    })
+   
  }
 
 function getEmployeeDetails(req, res){
    // res.send(employeeDetailsModel);
-   client.query('SELECT * FROM employeedetails ORDER BY id ASC', (error, results) => {
+   client.query('SELECT * FROM employeedetails', (error, results) => {
       if (error) {
         throw error
       }
@@ -155,9 +156,27 @@ function deleteEmployeeDetails(req, res){
   })
 }
 
+function copyAttendancetable(){
+  console.log("copyAttendancetable function is called");
+  client.query(
+    `COPY employeeattendance(attendance_id,id,employeeid, date,login_time,logout_time)
+  FROM '/Users/darios/Assignment-4-Employee/server/src/models/employeeattendanceid.csv'
+  
+  DELIMITER ','
+  CSV HEADER`,
+    (error, res) => {
+      if (!error) {
+        console.log("employeeAttendancecsv:", res.rows);
+      } else {
+        console.log("employeeAttendancecsvError :", error.message);
+      }
+    }
+  );
+}
  module.exports = {
     postEmployeeDetails,
     getEmployeeDetails,
     getIndividualEmployee,
-    deleteEmployeeDetails
+    deleteEmployeeDetails,
+    copyAttendancetable
  }

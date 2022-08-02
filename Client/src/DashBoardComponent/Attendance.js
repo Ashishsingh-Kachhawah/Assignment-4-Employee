@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,forwardRef, useRef ,useImperativeHandle} from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import Table from 'react-bootstrap/Table';
 import employeeList from './MockResponse';
@@ -7,30 +7,48 @@ import '../cssComponents/Dashboard.css'
 // import * as audio from './Sounds'
 
 var employeeAttendanceArray = [];
-// FETCH DATA OF ALL USER FOR ADMIN 
-const getEmployeeattendance = () => {
-  console.log("employeeattendance");
-  fetch("http://127.0.0.1:3002/employeeattendance",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "http://127.0.0.1:3002"
-        },
-      })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("response data getEmployeeattendance = ", data);
-        employeeAttendanceArray = data;
-        // window.localStorage.setItem("employeeDetails", data);
-        console.log("response data getEmployeeattendance => ",employeeAttendanceArray);
-      })
-      .catch((error) => {
-        console.log("Error sidebar.js getEmployeeattendance= ",error);
-      })
-}
 
-// FETCH DATA FOR NORMAL USER INDIVIDUAL DATA
+ const Attendance = forwardRef((props, ref) => {
+  const [employeeIndex, setemployeeIndex] = useState();
+  console.log("index set sideBar ====", employeeIndex);
+  // (props.userIsAdmin == true) ? getEmployeeattendance() : getIndividualEmployeeattendance()  ;
+  const [localemployeelist, setlocalemployeelist] = useState(employeeAttendanceArray);
+  console.log(employeeList);
+  const [isAdmin, setisAdmin] = useState(true);
+
+  useEffect(() => {
+    console.log("UseEffect")
+  }, [localemployeelist]);
+
+useEffect(() => {
+  (props.userIsAdmin == true) ? getEmployeeattendance() : getIndividualEmployeeattendance()  ;
+},[])
+
+// FETCH DATA OF ALL USER FOR ADMIN 
+  const getEmployeeattendance = () => {
+    console.log("employeeattendance");
+    fetch("http://127.0.0.1:3002/employeeattendance",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "http://127.0.0.1:3002"
+          },
+        })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("response data getEmployeeattendance = ", data);
+          employeeAttendanceArray = data;
+          setlocalemployeelist(data)
+          // window.localStorage.setItem("employeeDetails", data);
+          console.log("response data getEmployeeattendance => ",employeeAttendanceArray);
+        })
+        .catch((error) => {
+          console.log("Error sidebar.js getEmployeeattendance= ",error);
+        })
+  }
+
+  // FETCH DATA FOR NORMAL USER INDIVIDUAL DATA
 const getIndividualEmployeeattendance = () => {
   console.log("employeegetIndividualEmployeeattendanceattendance");
   fetch("http://127.0.0.1:3002/employeeattendance/46913",
@@ -53,18 +71,16 @@ const getIndividualEmployeeattendance = () => {
       })
 }
 
-export default function Attendance(props) {
-  const [employeeIndex, setemployeeIndex] = useState();
-  console.log("index set sideBar ====", employeeIndex);
-  (props.userIsAdmin == true) ? getEmployeeattendance() : getIndividualEmployeeattendance()  ;
-  const [localemployeelist, setlocalemployeelist] = useState(employeeAttendanceArray);
-  console.log(employeeList);
-  const [isAdmin, setisAdmin] = useState(true);
+  // useEffect(() => {
+  //   console.log("UseEffectemployeeAttendanceArray = ",employeeAttendanceArray)
+  // }, [employeeAttendanceArray]);
 
-  useEffect(() => {
-    console.log("UseEffect")
-  }, [localemployeelist]);
-
+  useImperativeHandle(ref, () => ({
+    getEmpAttendanceData() {
+      (props.userIsAdmin == true) ? getEmployeeattendance() : getIndividualEmployeeattendance()  ;
+    },
+  }))
+  
   const TableHeader = () => {
     return (
       <thead>
@@ -123,4 +139,5 @@ export default function Attendance(props) {
 
     </React.Fragment>
   )
-}
+})
+export default Attendance;

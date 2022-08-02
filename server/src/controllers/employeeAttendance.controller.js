@@ -84,7 +84,7 @@ function postEmployeeAttendance(req, res){
    //  res.send(employeeAttendanceModel);
 
    client.query(
-     "SELECT * FROM employeeattendance ORDER BY employeeid ASC",
+     "SELECT * FROM employeeattendance",
      (error, results) => {
        if (error) {
          throw error;
