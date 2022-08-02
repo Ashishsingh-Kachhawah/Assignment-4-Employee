@@ -99,20 +99,21 @@ body {
     background-color: lightcyan;
     width: 100%;
     height: fit-content;
-    /* justify-content: space-around; */
+    justify-content: center;
     padding: 10px;
     padding-top: 20px;
+    align-items: center;
   }
   .selectDatelable{
     
-    margin-left: 600px;
+    /* margin-left: 400px; */
     font-weight: bold;
   }
   
   .datepicker{
     /* flex-wrap:nowrap; */
     /* justify-content: baseline; */
-    margin-left: 20px;
+    margin-left: 10px;
     /* font-weight: bold; */
     display: flex;
     flex-direction: row;
