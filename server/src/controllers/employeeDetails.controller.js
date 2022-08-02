@@ -160,7 +160,7 @@ function copyAttendancetable(){
   console.log("copyAttendancetable function is called");
   client.query(
     `COPY employeeattendance(attendance_id,id,employeeid, date,login_time,logout_time)
-  FROM '/Users/darios/Assignment-4-Employee/server/src/models/employeeattendanceid.csv'
+  FROM '/Users/apple/Documents/Assignment4Uc/server/src/models/employeeattendanceid.csv'
   
   DELIMITER ','
   CSV HEADER`,
