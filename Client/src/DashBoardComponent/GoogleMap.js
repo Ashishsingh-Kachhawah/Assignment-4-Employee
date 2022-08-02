@@ -17,11 +17,22 @@ import '../cssComponents/Dashboard.css'
 // // define global variable to store polyline
 // var polyline = null;
 var employeelocationArray = [];
+var employeelocationArrayLocal = [];
 export class GoogleMap extends Component {
   constructor(props) {
     super(props);
     this.handleMapReady = this.handleMapReady.bind(this);
   
+  }
+
+   setIndex = index => {
+    console.log("side drawer index", index)
+    this.setState({employeeIndex:index})
+    var updatedItems = [];
+    updatedItems.push(employeelocationArray
+      [index]); 
+      employeelocationArrayLocal = updatedItems;
+    console.log("Upadates List in googlemap employeelocationArray",employeelocationArrayLocal);
   }
 
  getEmployeeLocation() {
@@ -39,6 +50,7 @@ export class GoogleMap extends Component {
     .then((data) => {
       console.log("response data getemployeeLocation = ", data);
       employeelocationArray = data;
+      employeelocationArrayLocal = data;
       // window.localStorage.setItem("employeeDetails", data);
       console.log(
         "response data getemployeeLocation => ",
@@ -68,7 +80,7 @@ export class GoogleMap extends Component {
     directionsDisplay.setMap(map);
 
 
-    const waypoints = employeelocationArray.map(item => {
+    const waypoints = employeelocationArrayLocal.map(item => {
       console.log("waypoints ", { lat: item.location[0].latitude, lng: item.location[0].longitude });
       return {
         location: { lat: item.location[0].latitude, lng: item.location[0].longitude },
@@ -97,6 +109,7 @@ export class GoogleMap extends Component {
     activeMarker: {},          // Shows the active marker upon click
     selectedPlace: {} ,         // Shows the InfoWindow to the selected place upon a marker
     isAdmin: true,
+    employeeIndex:null,
   };
 
 
@@ -124,7 +137,7 @@ export class GoogleMap extends Component {
         <div className='MapMainContaioner'>
           <div className={(this.props.userIsAdmin == true) ? 'UserListAdmin' : 'UserListNoramlUser'}>
             {this.props.userIsAdmin &&
-              <SideDrawer />}
+              <SideDrawer setIndex={this.setIndex} />}
 
           </div>
           <div className={(this.props.userIsAdmin == true) ? 'MapContainerAdminUser' : 'MapContainerNormalUser'}>
@@ -138,7 +151,7 @@ export class GoogleMap extends Component {
             >
 
               {/* CREATE MULTIPLE MARKER ON THE MAP */}
-              {employeelocationArray.map(marker => {
+              {employeelocationArrayLocal.map(marker => {
                 var latitude = marker.location[0].latitude;
                 var longitude = marker.location[0].longitude;
                 console.log(":Location   "+ latitude);
