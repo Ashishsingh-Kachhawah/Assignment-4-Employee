@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useDispatch } from 'react-redux';
 import { resources } from '../Utility/StringResource';
+import { secretResources } from '../Utility/secretKeysStrings';
 import * as audio from "../DashBoardComponent/Sounds";
 // import store from '../store/store';
 // import  store  from "../store/store";
@@ -25,23 +26,23 @@ const loggedIn = window.localStorage.getItem("isLoggedIn")
     switch (event.target.value) {
 
       case "prestaging":
-        client_id = "WeX4CwNQeMwX14tQ2NJ5j53TwPSh6Lx-YbpbH98nsUM"
-        client_secret = "rFCiEGumO_4lY3XBZdo0KLCQLsWAvasDLwtSIpKDWn8"
+        client_id = secretResources.LOGIN.CLIENT_ID_PRESTG
+        client_secret = secretResources.LOGIN.CLIENT_SECRET_PRESTG
         break;
 
       case "staging":
-        client_id = "wPHcNxiPuvyRPefzoW7mNnL3zimb6N4RdxyJCjCOlcc"
-        client_secret = "BRGrR4i9dmUuGuV4szoLqqa4N3oHYhiRjFYiTC1tThk"
+        client_id = secretResources.LOGIN.CLIENT_ID_STG
+        client_secret = secretResources.LOGIN.CLIENT_SECRET_STG
         break;
 
       case "preproduction":
-        client_id = "Io2GP8CjMJHejQLr4dKh6ZTxld-SzIRtWX6U2uncZQ0"
-        client_secret = "MRcet1zk5iv2mtMn2l969u-Fdv5k3sDTxFjIGRAJfio"
+        client_id = secretResources.LOGIN.CLIENT_ID_PREPRO
+        client_secret = secretResources.LOGIN.CLIENT_SECRET_PREPRO
         break
 
       case "reactwork":
-        client_id = "Io2GP8CjMJHejQLr4dKh6ZTxld-SzIRtWX6U2uncZQ0"
-        client_secret = "MRcet1zk5iv2mtMn2l969u-Fdv5k3sDTxFjIGRAJfio"
+        client_id = secretResources.LOGIN.CLIENT_ID_PRO
+        client_secret = secretResources.LOGIN.CLIENT_SECRET_PRO
         break;
     }
 

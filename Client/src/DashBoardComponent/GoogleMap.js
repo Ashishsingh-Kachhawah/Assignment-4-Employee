@@ -5,6 +5,7 @@ import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import employeeList from './MockResponse';
 import SideDrawer from './SideBar';
 import '../cssComponents/Dashboard.css'
+import { secretResources } from '../Utility/secretKeysStrings';
 // const google = window.google;
 // var map;
 // var markersArray = [{ lat: 21.161639, lng: 79.659862 },
@@ -198,7 +199,7 @@ export class GoogleMap extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: ""
+  apiKey: secretResources.LOGIN.API_KEY
   // libraries: ['direction']
 })(GoogleMap);
 
