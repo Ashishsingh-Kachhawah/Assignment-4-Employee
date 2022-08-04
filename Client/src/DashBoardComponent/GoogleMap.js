@@ -141,7 +141,7 @@ export class GoogleMap extends Component {
 
           </div>
           <div className={(this.props.userIsAdmin == true) ? 'MapContainerAdminUser' : 'MapContainerNormalUser'}>
-            <button onClick={this.handleMapReady} id="routeButton">Route</button>
+            {/* <button onClick={this.handleMapReady} id="routeButton">Route</button> */}
             <Map
               google={this.props.google}
               zoom={14}
@@ -198,7 +198,7 @@ export class GoogleMap extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyDTxTbcLTMhK1HYDzLsIm2HFUVAPRx7hfQ", // "AIzaSyDTxTbcLTMhK1HYDzLsIm2HFUVAPRx7hfQ",
+  apiKey: ""
   // libraries: ['direction']
 })(GoogleMap);
 
