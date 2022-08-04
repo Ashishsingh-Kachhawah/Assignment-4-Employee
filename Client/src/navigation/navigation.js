@@ -46,7 +46,7 @@ const loggedIn = window.localStorage.getItem("isLoggedIn")
         break;
     }
 
-    console.log("");
+    console.log("for testing purpose");
     // STORE VALUE IN REDUX
     dispatch({type: 'CLIENT_ID', client_id: client_id })
     dispatch({type: 'CLIENT_SECRET', client_secret: client_secret})
